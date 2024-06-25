@@ -32,7 +32,7 @@ const Dashboard = () => {
       icon: <MdDashboard size={24} />,
     },
     {
-      title: "All Seller",
+      title: "All user details",
       path: "/seller-list",
       icon: <LuUser size={24} />,
     },
@@ -97,7 +97,7 @@ const Dashboard = () => {
                 style={{
                   width: "100%",
                   position: "relative",
-                  paddingLeft: "44px",
+                  paddingLeft: "12px",
                   display: "flex",
                   alignItems: "center",
                   transition:'.5s'
@@ -117,7 +117,7 @@ const Dashboard = () => {
                     display: "flex",
                     alignItems: "center",
                     margin: "auto  0 auto 0",
-                    gap: "14px"
+                    gap: "10px"
                   }}
                 >
                   <div style={{height: "24px",}}>{item.icon}</div>
@@ -134,9 +134,9 @@ const Dashboard = () => {
               height: "38px",
               display: "flex", 
               alignItems: "center", 
-              paddingLeft: "47px",
+              paddingLeft: "12px",
               position: "relative",
-              gap: "14px",
+              gap: "10px",
               color: "#6A6D7C",
               cursor: "pointer"
             }}
