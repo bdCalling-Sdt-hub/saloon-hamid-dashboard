@@ -13,6 +13,7 @@ const data = [
     name: "Tushar",
     img: "https://i.ibb.co/B2xfD8H/images.png",
     Salon: "Babaji Salon",
+    FeedbackDate: "8/16/13",
     Review: 5,
   },
   {
@@ -20,6 +21,7 @@ const data = [
     name: "Tushar",
     img: "https://i.ibb.co/B2xfD8H/images.png",
     Salon: "Babaji Salon",
+    FeedbackDate: "8/16/13",
     Review: 5,
   },
 ];
@@ -80,7 +82,6 @@ const TotalSellerListTable = () => {
         <p>{record?.Review}/5</p>
       </div>)
     },
-
     {
       title: "ACTION",
       dataIndex: "printView",
@@ -112,8 +113,8 @@ const TotalSellerListTable = () => {
   return (
     <div style={{ height: "fit-content", borderRadius: "8px", background: "white", padding: "15px 24px 0 24px" }}>
       <div style={{ display: "flex", alignItems: "center", marginBottom: "15px", justifyContent: "space-between" }}>
-        <h1 style={{ fontSize: "20px", fontWeight: 600, color: "#2F2F2F" }}>Total Seller List</h1>
-        <Link to="/seller-list">
+        <h1 style={{ fontSize: "20px", fontWeight: 600, color: "#2F2F2F" }}>Total Review List</h1>
+        <Link to="/all-feedback">
           <p style={{ color: "#F27405", fontSize: "12px", textDecoration: "underline" }}>VIEW ALL</p>
         </Link>
       </div>

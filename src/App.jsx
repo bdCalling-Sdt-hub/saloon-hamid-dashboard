@@ -19,6 +19,7 @@ import Emails from "./Pages/Dashboard/Emails";
 import SellerProductList from "./Pages/Dashboard/SellerProductList";
 import TotalSellerList from "./Pages/Dashboard/TotalSellerList";
 import TopSellerList from "./Pages/Dashboard/TopSellerList";
+import AllFeedbacks from "./Pages/Dashboard/AllFeedbacks";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
             <Route exact path="/" element={ <PrivateRoute> <Dashboard /> </PrivateRoute> }>
               <Route path="/" element={<DashboardHome />} />
               <Route path="/notification" element={<Notification />} />
+              <Route path="/all-feedback" element={<AllFeedbacks />} />
               <Route path="/package" element={<Package />} />
               <Route path="/edit-package" element={<EditPackage />} />
               <Route path="/make-admin" element={<MakeAdmin />} />
