@@ -12,6 +12,7 @@ import UserCard from "./UserCard";
 import { Link } from "react-router-dom";
 import salon from '../../../assets/salon.png'
 import earning from '../../../assets/earning.png'
+import TotalSalonstatistics from "./TotalSalonstatistics";
 function DashboardHome() {
   const onChange = (pageNumber) => {
     console.log("Page: ", pageNumber);
@@ -75,83 +76,30 @@ function DashboardHome() {
           </div>)
         }
       </div>
-      {/* <Row gutter={26}>
-        {
-          data.map((item, index)=>
-            <Col key={index}  xs={{span:24}} sm={{span:24}} md={{span:12}} lg={{span:6}}>
-              <div  className='income-card'>
-                  <div 
-                    style={{
-                      background: `${item.bgColor}`,
-                      width: "64px",
-                      height: "64px",
-                      borderRadius: "100%",
-                      display:"flex",
-                      alignItems: "center",
-                      justifyContent: "center"
-                    }}
-                  >
-                    {item?.icon}
-                  </div>
-                  <div>
-                    <p
-                      style={{
-                        fontSize:"32px",
-                        fontWeight:"600", 
-                        color: "#50525D" ,
-                      }}
-                    >{item.count} +</p>
-                    <p 
-                      style={{
-                        fontSize:"16px",
-                        fontWeight:"400", 
-                        color: "#6A6D7C" ,
-                      }}
-                    >
-                      {item.name}
-                    </p>
-                  </div>
-              </div>
-            </Col>
-          )
-        }
-      </Row> */}
-      <div style={{ marginTop: "20px", marginBottom: "15px", display: "grid", gridTemplateColumns: "auto auto auto", gap: "20px" }} >
-        <div style={{ width: '500px', height: "276px", borderRadius: "15px", padding: "20px", backgroundColor: "#fff" }}>
-          <DailyOverviewChart />
-        </div>
-
-        <div
+      <div className="grid grid-cols-2 gap-6 items-center justify-start py-10">
+        <div className="w-full h-full"
           style={{
             borderRadius: "15px",
             backgroundColor: "#fff",
-            width: '500px',
-            height: "276px",
             padding: "10px 20px 20px 20px"
           }}
         >
           <TotalSellerChart />
         </div>
-
-        <div
-          style={{
-            borderRadius: "15px",
-            backgroundColor: "#fff",
-            width: '500px',
-            height: "276px",
-            padding: "10px 20px 20px 20px"
-          }}
-        >
-          <div style={{ display: "flex", alignItems: "center", marginBottom: "20px", justifyContent: "space-between" }}>
-            <h1 style={{ fontSize: "20px", fontWeight: 600, color: "#2F2F2F" }}>Top Seller</h1>
-            <Link to="/top-seller-list">
-              <p style={{ color: "#F27405", fontSize: "12px", textDecoration: "underline" }}>VIEW ALL</p>
-            </Link>
-          </div>
-          <UserCard />
+        <div className="w-full h-full" style={{ borderRadius: "15px", padding: "20px", backgroundColor: "#fff" }}>
+          <DailyOverviewChart />
         </div>
       </div>
-      <TotalSellerListTable />
+      <div className="grid grid-cols-2 gap-6 items-center justify-start">
+        <div className="w-full h-full" style={{ borderRadius: "15px", padding: "20px", backgroundColor: "#fff" }}>
+          <TotalSalonstatistics />
+        </div>
+        <div className="w-full h-full overflow-x-scroll bg-white rounded-2xl">
+        <TotalSellerListTable />
+      </div>
+      </div>
+      <div style={{ marginTop: "20px", marginBottom: "15px", display: "grid", gridTemplateColumns: "auto auto auto", gap: "20px" }} >
+      </div>
     </div>
   );
 }

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { DownOutlined } from "@ant-design/icons";
 import { Dropdown, Space } from "antd";
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+
 
 
 const TotalSellerChart = () => {
@@ -11,88 +12,75 @@ const TotalSellerChart = () => {
       name: 'Jan',
       uv: 4000,
       pv: 2400,
-      tv :1200,
-      amt: 10,
+      amt: 2400,
     },
     {
       name: 'Feb',
       uv: 3000,
       pv: 1398,
-      tv :1200,
-      amt: 20,
+      amt: 2210,
     },
     {
       name: 'Mar',
       uv: 2000,
       pv: 9800,
-      tv :1200,
-      amt: 30,
+      amt: 2290,
     },
     {
       name: 'Apr',
       uv: 2780,
       pv: 3908,
-      tv :1200,
-      amt: 40,
+      amt: 2000,
     },
     {
       name: 'May',
       uv: 1890,
       pv: 4800,
-      tv :1200,
-      amt: 50,
+      amt: 2181,
     },
     {
       name: 'Jun',
       uv: 2390,
       pv: 3800,
-      tv :1200,
-      amt: 60,
+      amt: 2500,
+    },
+    {
+      name: 'Jun',
+      uv: 3490,
+      pv: 4300,
+      amt: 2100,
     },
     {
       name: 'Jul',
       uv: 3490,
       pv: 4300,
-      tv :1200,
-      amt: 70,
+      amt: 2100,
     },
     {
-      name: 'Aug',
+      name: 'Sept',
       uv: 3490,
       pv: 4300,
-      tv :1200,
-      amt: 80,
-    },
-    {
-      name: 'Sep',
-      uv: 3490,
-      pv: 4300,
-      tv :1200,
-      amt: 90,
+      amt: 2100,
     },
     {
       name: 'Oct',
       uv: 3490,
       pv: 4300,
-      tv :1200,
-      amt: 100,
+      amt: 2100,
     },
     {
       name: 'Nov',
       uv: 3490,
       pv: 4300,
-      tv :1200,
-      amt: 110,
+      amt: 2100,
     },
     {
-      name: 'Dec',
+      name: 'Des',
       uv: 3490,
       pv: 4300,
-      tv :1200,
-      amt: 120,
+      amt: 2100,
     },
   ];
-
   const [year, setYear] = useState(2024)
 
   const items = [
@@ -117,72 +105,50 @@ const TotalSellerChart = () => {
   const onClick = ({ key }) => {
     setYear(key)
   };
+  return (
+    <div className='w-full h-full'>
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <p style={{ marginTop: "10px", fontSize: "20px", fontWeight: 600, marginBottom: "10px", color: "black", }}>Total users statistics</p>
+        <Dropdown menu={{ items, onClick }} >
+          <p style={{
+            // width: "79px", 
+            cursor: "pointer",
+            color: '#717171',
+            border: "1px solid #E9E9E9",
+            borderRadius: "4px",
+            padding: "4px 12px"
+          }} onClick={(e) => e.preventDefault()}
+          >
+            {year}
+            <DownOutlined style={{ paddingLeft: "18px" }} color='#717171' />
+          </p>
+        </Dropdown>
+      </div>
 
-  /* useEffect(() => {
-    if(year !== 2024){
-      window.history.pushState(null, "", `?year=${year}`);
-    }
-  }, [year]);
-
-  useEffect(() => {
-    const searchParams = new URLSearchParams(window.location.search);
-    const yearParam = searchParams.get('year');
-    if (yearParam) {
-      const parsedYear = parseInt(yearParam, 10);
-      setYear(parsedYear);
-    } else {
-      window.location.reload();
-    }
-  }, []); */
-
-  return(
-  <div> 
-    <div style={{display : "flex", alignItems: "center", justifyContent : "space-between"}}>
-          <p style={{marginTop:"10px", fontSize: "20px", fontWeight: 600, marginBottom:"10px", color: "black",}}>Total Seller</p>
-          <Dropdown menu={{ items, onClick }} >
-            <p style={{
-              // width: "79px", 
-              cursor: "pointer", 
-              color:'#717171', 
-              border: "1px solid #E9E9E9",
-              borderRadius: "4px",
-              padding: "4px 12px"
-            }} onClick={(e) => e.preventDefault()}
-            >
-              {year}
-              <DownOutlined style={{paddingLeft: "18px"}} color='#717171' />
-            </p>
-          </Dropdown>
-    </div>
-
-    <div style={{display: "flex", alignItems: "center", gap: "31px", marginBottom: "19px"}}>
-          <div>
-            <p style={{fontSize: "12px", fontWeight: 400, color: "#808080"}}>Overly Growth</p>
-            <h1 style={{fontSize: "14px", fontWeight: 700, color: "#2F2F2F"}}>38.38%</h1>
-          </div>
-          <div>
-            <p style={{fontSize: "12px", fontWeight: 400, color: "#808080"}}>Monthly</p>
-            <h1 style={{fontSize: "14px", fontWeight: 700, color: "#2F2F2F"}}>15.5%</h1>
-          </div>
-          <div>
-            <p style={{fontSize: "12px", fontWeight: 400, color: "#808080"}}>Daily</p>
-            <h1 style={{fontSize: "14px", fontWeight: 700, color: "#2F2F2F"}}>58.50%</h1>
-          </div>
-    </div>
-
-    
-      <BarChart
-        width={450}
-        height={132}
-        data={data}
-        
-      >
-        <XAxis dataKey="name" />
-        <Bar  barSize={10} dataKey="pv" stackId="a" fill="#8884d8" />
-        <Bar  barSize={10} dataKey="uv" stackId="a" fill="#82ca9d" />
-        <Bar  barSize={10} dataKey="tv" stackId="a" fill="##F27405" />
-      </BarChart>
-  </div>)
+      <div className='w-full h-[300px]'>
+        <ResponsiveContainer width="100%" height="100%">
+          <BarChart
+            width={500}
+            height={300}
+            data={data}
+            margin={{
+              top: 5,
+              right: 30,
+              left: 20,
+              bottom: 5,
+            }}
+          >
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="name" />
+            <YAxis />
+            <Tooltip />
+            <Legend />
+            <Bar dataKey="pv" fill="#F27405" background={{ fill: '#eee' }} />
+            <Bar dataKey="uv" fill="#00B047" />
+          </BarChart>
+        </ResponsiveContainer>
+      </div>
+    </div>)
 };
 
 
