@@ -13,7 +13,6 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif !important;
 }
-
 .ant-layout-sider-children .ant-menu-item-selected {
   color: #000b90;
   font-weight: bold;

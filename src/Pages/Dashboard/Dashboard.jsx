@@ -1,27 +1,26 @@
-import { Input, Layout,  Badge, } from "antd";
-import React, { useEffect, useState } from "react";
+import { Layout, Badge, } from "antd";
+import React, { useState } from "react";
 import { Link, Outlet, useNavigate, useLocation } from "react-router-dom";
 import LogoText from "../../assets/logo-text.png";
-import { HiLogout, HiOutlineMail } from "react-icons/hi";
+import { HiLogout } from "react-icons/hi";
 import { LuUser } from "react-icons/lu";
-import { TbUserPlus } from "react-icons/tb";
+import { TbCategoryMinus, TbShoppingCartDollar } from "react-icons/tb";
 import { MdDashboard } from "react-icons/md";
-import { FiSearch } from "react-icons/fi";
-import { IoClose, IoSettings } from "react-icons/io5";
+import { IoSettings } from "react-icons/io5";
 import { RiNotification2Line, RiChat1Line, RiCopperDiamondLine } from "react-icons/ri";
 const { Header, Sider, Content } = Layout;
 import { IoSettingsOutline } from "react-icons/io5";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { MdKeyboardArrowDown } from "react-icons/md";
-import { FaFire, FaRuler, FaStore } from "react-icons/fa6";
+import { FaFileInvoiceDollar, FaFire, FaRuler, FaStore } from "react-icons/fa6";
 import { TiShoppingCart } from "react-icons/ti";
-
+import { IoMdNotificationsOutline } from "react-icons/io";
 const Dashboard = () => {
   const [dropdown, setDropdown] = useState(false)
   const { pathname } = useLocation();
   const navigate = useNavigate();
 
-  const handleLogOut=()=>{
+  const handleLogOut = () => {
     navigate('/login');
     window.location.reload();
   }
@@ -60,19 +59,60 @@ const Dashboard = () => {
     {
       title: "E-Shop Category",
       path: "/product-category",
-      icon: <IoSettings size={24} />,
+      icon: <TbCategoryMinus size={24} />,
     },
     {
-      title: "Pricing",
-      path: "/package",
-      icon: <RiCopperDiamondLine size={24} />,
-    }
+      title: "Orders Transaction",
+      path: "/orders-transaction",
+      icon: <TbShoppingCartDollar size={24} />,
+    },
+    {
+      title: "Salon Invoice",
+      path: "/salon-invoice",
+      icon: <FaFileInvoiceDollar size={24} />,
+    },
+    {
+      title: "Notifications",
+      path: "/notification",
+      icon: <IoMdNotificationsOutline size={24} />,
+    },
   ];
-
+  const settingOptions = [
+    {
+      title: "Slider Setting",
+      path: "/slider-setting",
+    },
+    {
+      title: "About Us",
+      path: "/about",
+    },
+    {
+      title: "Contact Us",
+      path: "/contact",
+    },
+    {
+      title: "FAQ",
+      path: "/faq",
+    },
+    {
+      title: "Privacy Policy",
+      path: "/privacy",
+    },
+    {
+      title: "Terms & Condition",
+      path: "/terms-condition",
+    },
+    {
+      title: "Setting",
+      path: "/banner",
+    },
+    {
+      title: "Feedback",
+      path: "/feedback",
+    },
+  ]
   return (
-    <Layout style={{ height: "100vh", width: "100vw" }}>
-
-      
+    <Layout style={{ height: "100vh", width: "100vw", }}>
       <Sider
         width="233px"
         trigger={null}
@@ -90,7 +130,7 @@ const Dashboard = () => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center"
-        }}> 
+        }}>
           <img
             src={LogoText}
             width="80%"
@@ -105,98 +145,120 @@ const Dashboard = () => {
             gap: "10px",
             height: "100%",
             marginTop: 0
-          }} 
+          }}
         >
           {linkItems.map((item, index) => (
             <li
-                key={index}
-                style={{
-                  width: "100%",
-                  position: "relative",
-                  paddingLeft: "4px",
-                  display: "flex",
-                  alignItems: "center",
-                  transition:'.5s'
-                }}
-              >
-                {
-                  item.path === pathname
+              key={index}
+              style={{
+                width: "100%",
+                position: "relative",
+                paddingLeft: "4px",
+                display: "flex",
+                alignItems: "center",
+                transition: '.5s'
+              }}
+            >
+              {
+                item.path === pathname
                   ?
-                  <div style={{backgroundColor: "#F27405", position: "absolute", left:-10, top: 0, width: "8px", height: "100%", borderRadius: "0 10px 10px 0"}}></div>
+                  <div style={{ backgroundColor: "#F27405", position: "absolute", left: -10, top: 0, width: "8px", height: "100%", borderRadius: "0 10px 10px 0" }}></div>
                   :
                   null
 
-                }
-                <Link className={`${item.path === pathname ? "bg-[#F27405] text-[#FFFFFF]":'text-[#F27405]'} py-2 rounded hover:bg-[#F27405] hover:text-[#FFFFFF] w-full px-2`} 
-                  to={item.path} 
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    margin: "auto  0 auto 0",
-                    gap: "10px"
-                  }}
-                >
-                  <div style={{height: "24px",}}>{item.icon}</div>
-                  <div style={{fontSize: "14px", textAlign: "center", height: "fit-content"}}>{item.title}</div>
-                </Link>
+              }
+              <Link className={`${item.path === pathname ? "bg-[#F27405] text-[#FFFFFF]" : 'text-[#F27405]'} py-2 rounded hover:bg-[#F27405] hover:text-[#FFFFFF] w-full px-2`}
+                to={item.path}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  margin: "auto  0 auto 0",
+                  gap: "10px"
+                }}
+              >
+                <div style={{ height: "24px", }}>{item.icon}</div>
+                <div style={{ fontSize: "14px", textAlign: "center", height: "fit-content" }}>{item.title}</div>
+              </Link>
             </li>
-            
+
           ))}
 
-          <li
+          <li onClick={() => {
+            setDropdown(!dropdown)
+          }}
             style={{
               width: "100%",
-              marginTop: 0,
-              height: "38px",
-              display: "flex", 
-              alignItems: "center", 
-              paddingLeft: "12px",
+              height: "34px",
               position: "relative",
-              gap: "10px",
-              color: "#6A6D7C",
-              cursor: "pointer"
+              display: "flex",
+              alignItems: "center",
+              paddingLeft:'4px'
             }}
           >
             {
-              pathname === "/setting-change-password" || pathname === "/settings-profile"
-              ?
-              <div style={{backgroundColor: "#F27405", position: "absolute", left:0, top: 0, width: "8px", height: "38px", borderRadius: "0 10px 10px 0"}}></div>
-              :
-              null
+              dropdown
+                ?
+                <div style={{ backgroundColor: "#FBFBFB", position: "absolute", left: 0, top: 0, width: "6px", height: "38px", borderRadius: "0 10px 10px 0" }}></div>
+                :
+                null
 
             }
-            <IoSettingsOutline size={24} />
-            <p onClick={()=>setDropdown(!dropdown)} style={{fontSize: "15px", textAlign: "center"}}>Settings</p>
-            {
-              dropdown
-              ?
-              <MdKeyboardArrowDown size={24} />
-              :
-              <MdKeyboardArrowRight size={24} />
-            }
+            <div style={{
+              width: "100%",
+              marginTop: 0,
+              height: "38px",
+              display: "flex",
+              alignItems: "center",
+              paddingLeft: "47px",
+              gap: "14px",
+              color: "#F2F2F2",
+              cursor: "pointer",
+              padding: '12px 12px',
+              borderRadius:'4px',
+              position: "relative",
+              backgroundColor: dropdown ? "#F27405" : '',
+              color: dropdown ? "#fff" : '#F27405',
+            }}>
+              <IoSettingsOutline size={24} />
+
+              <p style={{ fontSize: "15px", textAlign: "center", }}>Settings</p>
+              {
+                dropdown
+                  ?
+                  <MdKeyboardArrowDown className="absolute top-[50%] right-0 translate-y-[-50%]" size={24} />
+                  :
+                  <MdKeyboardArrowRight className="absolute top-[50%] right-0 translate-y-[-50%]" size={24} />
+              }
+            </div>
             {
               dropdown
               &&
-              <div 
+              <div
                 style={{
-                  position: "absolute", 
-                  left: "80px", 
-                  top: "40px", 
-                  width: "150px", 
-                  height: "50px", 
-                  borderRadius: "0 10px 10px 0"
+                  position: "absolute",
+                  left: "0px",
+                  top: "40px",
+                  width: '100%',
+                  padding: "0px 10px",
+                  zIndex: '100'
                 }}
               >
-                  <Link to="/settings-profile" style={{color: pathname === "/settings-profile" ? "#F27405" : '#6A6D7C'}}>
-                    <p style={{marginBottom: '8px'}}>Profile</p>
-                  </Link>
-                  <Link to="/setting-change-password" style={{color: pathname === "/setting-change-password" ? "#F27405" : '#6A6D7C'}}>
-                    <p>Change Password</p>
-                  </Link>
+                {
+                  settingOptions?.map((item, index) => <Link key={index} to={item?.path} style={{
+                    textAlign: 'center',
+                    color: '#242424',
+                    width: '100%',
+                    backgroundColor: item.path === pathname ? "#E8D3B0" : '#FBFBFB',
+                    display: 'block',
+                    padding: '6px 0px'
+                  }}>
+                    <p>{item?.title}</p>
+                  </Link>)
+                }
               </div>
             }
 
-            
+
           </li>
 
           <li
@@ -208,8 +270,8 @@ const Dashboard = () => {
             }}
           >
 
-            <div onClick={handleLogOut} style={{display: "flex", width: "fit-content", margin: "0 auto 0 auto", alignItems: "center", gap: "14px", cursor: "pointer", justifyContent: "center"}}>
-              <div style={{color:"#6A6D7C", fontSize: "14px"}}>Logout</div>
+            <div onClick={handleLogOut} style={{ display: "flex", width: "fit-content", margin: "0 auto 0 auto", alignItems: "center", gap: "14px", cursor: "pointer", justifyContent: "center" }}>
+              <div style={{ color: "#6A6D7C", fontSize: "14px" }}>Logout</div>
               <HiLogout color="#6A6D7C" size={24} />
             </div>
           </li>
@@ -227,37 +289,17 @@ const Dashboard = () => {
             height: "80px",
             zIndex: 1,
             padding: 0,
-            background: "#EAFBF9",
+            background: "#FFF",
             display: "flex",
-            justifyContent: "space-between",
+            justifyContent: "end",
             paddingRight: "60px",
             paddingLeft: "270px"
           }}
         >
           <div
             style={{
-              width: "512px",
-              height: "42px",
-              borderRadius: "8px"
-            }}
-          >
-            <Input
-              placeholder="Search..."
-              prefix={<FiSearch size={14} color="#868FA0"/>}
-              suffix={<IoClose size={14} color="#2B2A2A" />}
-              style={{
-                width: "100%",
-                height: "100%",
-                fontSize: "14px"
-              }}
-              size="middle"
-            />
-          </div>
-
-          <div
-            style={{
               width: "280px",
-              display: "flex", 
+              display: "flex",
               alignItems: "center",
               // gap: "16px",
               justifyContent: "space-between"
@@ -277,28 +319,27 @@ const Dashboard = () => {
             <div
               style={{
                 width: "170px",
-                height:"42px",
+                height: "42px",
                 background: "#FFFFFF",
                 borderRadius: "5px",
-                display: "flex", 
+                display: "flex",
                 alignItems: "center",
                 gap: "20px",
                 padding: "10px"
               }}
             >
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLotvhr2isTRMEzzT30Cj0ly77jFThGXr0ng&usqp=CAU" style={{width: "30px", height: "30px", borderRadius: "100%"}} alt="" />
-              <h2 style={{color: "black", fontSize: "10px"}}>DR. Jim ahhmed</h2>
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLotvhr2isTRMEzzT30Cj0ly77jFThGXr0ng&usqp=CAU" style={{ width: "30px", height: "30px", borderRadius: "100%" }} alt="" />
+              <h2 style={{ color: "black", fontSize: "10px" }}>DR. Jim ahhmed</h2>
             </div>
           </div>
         </Header>
 
         <Content
           style={{
-            marginTop: "60px",
+            marginTop: "90px",
             marginBottom: "20px",
             marginLeft: "255px",
             marginRight: "40px",
-            background: "#EAFBF9",
             overflow: "auto",
             padding: "20px"
           }}

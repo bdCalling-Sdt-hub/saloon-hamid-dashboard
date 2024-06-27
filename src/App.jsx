@@ -25,6 +25,8 @@ import SalonsServices from "./Pages/Dashboard/SalonsServices";
 import ServicesCategory from "./Pages/Dashboard/ServicesCategory";
 import ManageShop from "./Pages/Dashboard/ManageShop";
 import ProductCategory from "./Pages/Dashboard/ProductCategory";
+import OrdersTransection from "./Pages/Dashboard/OrdersTransection";
+import SalonInvoice from "./Pages/Dashboard/SalonInvoice";
 
 function App() {
   return (
@@ -41,6 +43,8 @@ function App() {
               <Route path="/services-category" element={<ServicesCategory />} />
               <Route path="/manage-shop" element={<ManageShop />} />
               <Route path="/product-category" element={<ProductCategory />} />
+              <Route path="/orders-transaction" element={<OrdersTransection />} />
+              <Route path="/salon-invoice" element={<SalonInvoice />} />
               <Route path="/package" element={<Package />} />
               <Route path="/edit-package" element={<EditPackage />} />
               <Route path="/make-admin" element={<MakeAdmin />} />
