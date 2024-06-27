@@ -7,13 +7,13 @@ import { LuUser } from "react-icons/lu";
 import { TbUserPlus } from "react-icons/tb";
 import { MdDashboard } from "react-icons/md";
 import { FiSearch } from "react-icons/fi";
-import { IoClose } from "react-icons/io5";
+import { IoClose, IoSettings } from "react-icons/io5";
 import { RiNotification2Line, RiChat1Line, RiCopperDiamondLine } from "react-icons/ri";
 const { Header, Sider, Content } = Layout;
 import { IoSettingsOutline } from "react-icons/io5";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { MdKeyboardArrowDown } from "react-icons/md";
-import { FaFire, FaStore } from "react-icons/fa6";
+import { FaFire, FaRuler, FaStore } from "react-icons/fa6";
 import { TiShoppingCart } from "react-icons/ti";
 
 const Dashboard = () => {
@@ -50,12 +50,17 @@ const Dashboard = () => {
     {
       title: "Services Category",
       path: "/services-category",
-      icon: <FaFire size={24} />,
+      icon: <FaRuler size={24} />,
     },
     {
       title: "Manage E-Shop",
       path: "/manage-shop",
       icon: <TiShoppingCart size={24} />,
+    },
+    {
+      title: "E-Shop Category",
+      path: "/product-category",
+      icon: <IoSettings size={24} />,
     },
     {
       title: "Pricing",

@@ -9,20 +9,20 @@ import CreateSalonForm from '../../Components/Form/CreateSalonForm';
 import { FaEdit } from 'react-icons/fa';
 import { MdDelete } from 'react-icons/md';
 import CreateSalonCategoryFrom from '../../Components/Form/CreateSalonCategoryFrom';
-import CreateProductFrom from '../../Components/Form/CreateProductFrom';
+import CreateProductCategoryForm from '../../Components/Form/CreateProductCategoryForm';
 const data = [
     {
         key: "1",
         name: "Tushar",
         email: "tushar@gmail.com",
         date: "18 Jul, 2023  4:30pm",
-        category: 'Hair Style',
-        img: "https://i.ibb.co/B2xfD8H/images.png",
+        location: "Banasree",
+        contact: '5489156454745',
     },
 ];
 
 
-const ManageShop = () => {
+const ProductCategory = () => {
     const [value, setValue] = useState(new URLSearchParams(window.location.search).get('date') || new Date().toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' }));
     const [page, setPage] = useState(new URLSearchParams(window.location.search).get('page') || 1);
     const [open, setOpen] = useState(false)
@@ -70,22 +70,9 @@ const ManageShop = () => {
             key: "key",
         },
         {
-            title: "Products image",
-            dataIndex: "img",
-            key: "Products image",
-            render: (_, record) => (<div className="flex justify-start items-center gap-2">
-                <img className="w-10 h-10 rounded-full" src={record?.img} alt="" />
-            </div>)
-        },
-        {
-            title: "Products name",
+            title: "Product category name",
             dataIndex: "name",
             key: "name",
-        },
-        {
-            title: "Category",
-            dataIndex: "category",
-            key: "category",
         },
         {
             title: "ACTION",
@@ -94,7 +81,7 @@ const ManageShop = () => {
             render: (_, record) => (
                 <div className='flex justify-start items-center gap-2'>
                     <FaEdit onClick={() => { setOpenAddSalon(true) }} className="text-[#F25C05] text-2xl cursor-pointer" />
-                    <MdDelete onClick={() => { setOpen(true) }} className="text-[#F25C05] text-2xl cursor-pointer" />
+                    <MdDelete onClick={() => {setOpen(true) }} className="text-[#F25C05] text-2xl cursor-pointer" />
                 </div>
             ),
         },
@@ -117,14 +104,14 @@ const ManageShop = () => {
             <div className='mb-6 flex justify-between items-center'
 
             >
-                <h1 style={{ fontSize: "20px", fontWeight: 600, color: "#2F2F2F" }}>All E-Shop products</h1>
+                <h1 style={{ fontSize: "20px", fontWeight: 600, color: "#2F2F2F" }}>E-Shop Categories</h1>
                 <div className='flex justify-end items-center gap-3'>
                     <button className='text-2xl'>
                         <FaRegFilePdf />
                     </button>
                     <button onClick={() => setOpenAddSalon(true)} className='flex justify-start items-center gap-2 text-white p-2 rounded-md bg-[#F27405]'>
                         <FaPlus />
-                        Add Service
+                        Add Category
                     </button>
                 </div>
             </div>
@@ -147,8 +134,8 @@ const ManageShop = () => {
                 width={500}
             >
                 <div className='bg-white p-6 rounded-md'>
-                    <p className='text-[#F27405] text-lg font-medium'>Add E-Shop products</p>
-                    <CreateProductFrom setOpen={setOpenAddSalon} />
+                    <p className='text-[#F27405] text-lg font-medium'> Add E-Shop Category</p>
+                    <CreateProductCategoryForm />
                 </div>
             </Modal>
             <Modal
@@ -166,7 +153,7 @@ const ManageShop = () => {
                         Do you want to delete this content ?
                     </p>
                     <button
-                        onClick={() => setOpen(false)}
+                        onClick={()=>setOpen(false)}
                         className="bg-[#F27405] py-2 px-5 text-white rounded-md"
                     >
                         Confirm
@@ -177,4 +164,4 @@ const ManageShop = () => {
     )
 }
 
-export default ManageShop
+export default ProductCategory

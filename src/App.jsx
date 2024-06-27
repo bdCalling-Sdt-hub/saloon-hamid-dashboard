@@ -24,6 +24,7 @@ import SalonsDetails from "./Pages/Dashboard/SalonsDetails";
 import SalonsServices from "./Pages/Dashboard/SalonsServices";
 import ServicesCategory from "./Pages/Dashboard/ServicesCategory";
 import ManageShop from "./Pages/Dashboard/ManageShop";
+import ProductCategory from "./Pages/Dashboard/ProductCategory";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
               <Route path="/salons-services" element={<SalonsServices />} />
               <Route path="/services-category" element={<ServicesCategory />} />
               <Route path="/manage-shop" element={<ManageShop />} />
+              <Route path="/product-category" element={<ProductCategory />} />
               <Route path="/package" element={<Package />} />
               <Route path="/edit-package" element={<EditPackage />} />
               <Route path="/make-admin" element={<MakeAdmin />} />
