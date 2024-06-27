@@ -14,7 +14,7 @@ import { IoSettingsOutline } from "react-icons/io5";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { FaFire, FaStore } from "react-icons/fa6";
-
+import { TiShoppingCart } from "react-icons/ti";
 
 const Dashboard = () => {
   const [dropdown, setDropdown] = useState(false)
@@ -46,6 +46,16 @@ const Dashboard = () => {
       title: "Salons Services",
       path: "/salons-services",
       icon: <FaFire size={24} />,
+    },
+    {
+      title: "Services Category",
+      path: "/services-category",
+      icon: <FaFire size={24} />,
+    },
+    {
+      title: "Manage E-Shop",
+      path: "/manage-shop",
+      icon: <TiShoppingCart size={24} />,
     },
     {
       title: "Pricing",
