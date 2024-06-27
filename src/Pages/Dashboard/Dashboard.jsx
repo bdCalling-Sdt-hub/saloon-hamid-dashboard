@@ -192,7 +192,7 @@ const Dashboard = () => {
               position: "relative",
               display: "flex",
               alignItems: "center",
-              paddingLeft:'4px'
+              paddingLeft: '4px'
             }}
           >
             {
@@ -214,7 +214,7 @@ const Dashboard = () => {
               color: "#F2F2F2",
               cursor: "pointer",
               padding: '12px 12px',
-              borderRadius:'4px',
+              borderRadius: '4px',
               position: "relative",
               backgroundColor: dropdown ? "#F27405" : '',
               color: dropdown ? "#fff" : '#F27405',
@@ -239,18 +239,19 @@ const Dashboard = () => {
                   left: "0px",
                   top: "40px",
                   width: '100%',
-                  padding: "0px 10px",
+                  paddingLeft:'4px',
                   zIndex: '100'
                 }}
               >
                 {
                   settingOptions?.map((item, index) => <Link key={index} to={item?.path} style={{
                     textAlign: 'center',
-                    color: '#242424',
+                    color:  item.path === pathname ? "#FBFBFB" : '#f27405',
                     width: '100%',
-                    backgroundColor: item.path === pathname ? "#E8D3B0" : '#FBFBFB',
+                    backgroundColor: item.path === pathname ? "#f27405" : '#FBFBFB',
                     display: 'block',
-                    padding: '6px 0px'
+                    padding: '7px 0px',
+                    borderRadius:'4px',
                   }}>
                     <p>{item?.title}</p>
                   </Link>)
