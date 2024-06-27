@@ -20,6 +20,8 @@ import SellerProductList from "./Pages/Dashboard/SellerProductList";
 import TotalSellerList from "./Pages/Dashboard/TotalSellerList";
 import TopSellerList from "./Pages/Dashboard/TopSellerList";
 import AllFeedbacks from "./Pages/Dashboard/AllFeedbacks";
+import SalonsDetails from "./Pages/Dashboard/SalonsDetails";
+import SalonsServices from "./Pages/Dashboard/SalonsServices";
 
 function App() {
   return (
@@ -31,6 +33,8 @@ function App() {
               <Route path="/" element={<DashboardHome />} />
               <Route path="/notification" element={<Notification />} />
               <Route path="/all-feedback" element={<AllFeedbacks />} />
+              <Route path="/salons-setails" element={<SalonsDetails />} />
+              <Route path="/salons-services" element={<SalonsServices />} />
               <Route path="/package" element={<Package />} />
               <Route path="/edit-package" element={<EditPackage />} />
               <Route path="/make-admin" element={<MakeAdmin />} />

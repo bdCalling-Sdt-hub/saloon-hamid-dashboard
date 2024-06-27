@@ -73,3 +73,6 @@
   width: 100% !important;
   height: 190px !important;
 }
+.ant-table-thead .ant-table-cell{
+  background: #FEF1E6 !important;
+}

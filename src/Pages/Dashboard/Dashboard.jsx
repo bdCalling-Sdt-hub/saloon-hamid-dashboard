@@ -13,6 +13,7 @@ const { Header, Sider, Content } = Layout;
 import { IoSettingsOutline } from "react-icons/io5";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { MdKeyboardArrowDown } from "react-icons/md";
+import { FaFire, FaStore } from "react-icons/fa6";
 
 
 const Dashboard = () => {
@@ -37,14 +38,14 @@ const Dashboard = () => {
       icon: <LuUser size={24} />,
     },
     {
-      title: "Make Admin",
-      path: "/make-admin",
-      icon: <TbUserPlus size={24} />,
+      title: "Salons Details",
+      path: "/salons-setails",
+      icon: <FaStore size={24} />,
     },
     {
-      title: "Email",
-      path: "/emails",
-      icon: <HiOutlineMail size={24} />,
+      title: "Salons Services",
+      path: "/salons-services",
+      icon: <FaFire size={24} />,
     },
     {
       title: "Pricing",
@@ -92,12 +93,12 @@ const Dashboard = () => {
           }} 
         >
           {linkItems.map((item, index) => (
-            <li className={`${item.path === pathname ? "bg-[#F27405] text-[#FFFFFF]":'text-[#F27405]'} py-2 rounded hover:bg-[#F27405] hover:text-[#FFFFFF]`}
+            <li
                 key={index}
                 style={{
                   width: "100%",
                   position: "relative",
-                  paddingLeft: "12px",
+                  paddingLeft: "4px",
                   display: "flex",
                   alignItems: "center",
                   transition:'.5s'
@@ -111,7 +112,7 @@ const Dashboard = () => {
                   null
 
                 }
-                <Link className="hover:text-[#FFFFFF]"
+                <Link className={`${item.path === pathname ? "bg-[#F27405] text-[#FFFFFF]":'text-[#F27405]'} py-2 rounded hover:bg-[#F27405] hover:text-[#FFFFFF] w-full px-2`} 
                   to={item.path} 
                   style={{
                     display: "flex",

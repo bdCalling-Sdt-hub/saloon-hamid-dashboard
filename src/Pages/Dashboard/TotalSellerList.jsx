@@ -1,14 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
-import BackButton from "../Dashboard/BackButton";
-import { MdOutlineFilterList } from 'react-icons/md';
-import { FiEye, FiSearch } from 'react-icons/fi';
-import { IoClose } from 'react-icons/io5';
 import { Calendar, Dropdown, Input, Modal, Select, Slider, Table } from 'antd';
-import { DownOutlined } from "@ant-design/icons";
 import { FaRegFilePdf, FaRegTrashCan, FaUserCheck } from 'react-icons/fa6';
-import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import { CiMenuKebab } from 'react-icons/ci';
 import { GoArrowUpRight } from 'react-icons/go';
 import { TfiReload } from 'react-icons/tfi';
 
@@ -188,7 +181,7 @@ const TotalSellerList = () => {
         footer={false}
         width={500}
       >
-        <div>
+        <div className='p-6'>
           <div className='flex justify-center items-center flex-col py-5 gap-4'>
             <img className='w-20 h-20 rounded-full' src="https://i.ibb.co/B2xfD8H/images.png" alt="" />
             <p className='text-base font-semibold'>Md. Mahmud</p>

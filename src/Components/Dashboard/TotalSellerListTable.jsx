@@ -130,7 +130,7 @@ const TotalSellerListTable = () => {
         footer={false}
         width={800}
       >
-        <div>
+        <div className='p-6'>
           <p className="text-[#F27405] text-lg">Feedback Deatails</p>
           <div className="grid grid-cols-2 mt-6 border-b pb-4">
             <div className="w-full">
