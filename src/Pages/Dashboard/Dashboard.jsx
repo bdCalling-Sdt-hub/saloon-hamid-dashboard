@@ -118,7 +118,7 @@ const Dashboard = () => {
     },
   ]
   return (
-    <Layout style={{ height: "100vh", width: "100vw", }}>
+    <Layout style={{ height: "100vh", width: "100vw"}}>
       <Sider
         width="233px"
         trigger={null}
@@ -129,6 +129,7 @@ const Dashboard = () => {
           overflowY: "hidden",
           zIndex: 2,
           backgroundColor: "white",
+          overflowY:'scroll'
         }}
       >
 
@@ -286,8 +287,6 @@ const Dashboard = () => {
         </ul>
 
       </Sider>
-
-
       <Layout>
         <Header
           style={{
