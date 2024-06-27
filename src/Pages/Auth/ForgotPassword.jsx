@@ -22,72 +22,71 @@ const ForgotPassword = () => {
     <div
       style={{
         width: "100%",
-        background: "#BFF2EE",
         height: "100vh",
-        display:"flex",
+        display: "flex",
         alignItems: "center",
         justifyContent: "center"
       }}
     >
-      <Form 
+      <Form
         name="normal_login"
         className="password-form"
         initialValues={{
           remember: true,
         }}
-        style={{width: "630px", background: "white", borderRadius: "12px", padding: "90px 57px"}}
-        
+        style={{ width: "630px", background: "white", borderRadius: "12px", padding: "90px 57px", boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px' }}
+
         onFinish={onFinish}
       >
-        <h1 style={{fontSize: "32px", marginBottom: "54px", color: "#494949", textAlign: "center"}}>Forgot Password</h1>
+        <h1 style={{ fontSize: "32px", marginBottom: "54px", color: "#494949", textAlign: "center" }}>Forgot Password</h1>
 
-          <div style={{marginBottom: "24px"}}>
-            <label htmlFor="email" style={{display: "block", marginBottom: "5px" }}> Email Address</label>
-            <Form.Item
-              style={{marginBottom: 0}}
-              name="email"
-              id="email"
-              rules={[
-                {
-                  required: true,
-                  message: "Please input your email!",
-                },
-              ]}
-            >
-              <Input
-                placeholder="Enter your email address"
-                type="email"
-                style={{
-                  border: "1px solid #E0E4EC",
-                  height: "52px",
-                  background: "white",
-                  borderRadius: "8px",
-                  outline: "none",
-                }}
-
-              />
-            </Form.Item>
-          </div>
-
-          <Form.Item>
-            <Button
-              type="primary"
-              htmlType="submit"
-              className="login-form-button"
-              block
+        <div style={{ marginBottom: "24px" }}>
+          <label htmlFor="email" style={{ display: "block", marginBottom: "5px" }}> Email Address</label>
+          <Form.Item
+            style={{ marginBottom: 0 }}
+            name="email"
+            id="email"
+            rules={[
+              {
+                required: true,
+                message: "Please input your email!",
+              },
+            ]}
+          >
+            <Input
+              placeholder="Enter your email address"
+              type="email"
               style={{
-                height: "45px",
-                fontWeight: "400px",
-                fontSize: "18px",
-                background: "#F27405",
-                color: "white",
-                alignSelf: "bottom",
-                marginTop: "30px",
+                border: "1px solid #E0E4EC",
+                height: "52px",
+                background: "white",
+                borderRadius: "8px",
+                outline: "none",
               }}
-            >
-              Send a Code
-            </Button>
+
+            />
           </Form.Item>
+        </div>
+
+        <Form.Item>
+          <Button
+            type="primary"
+            htmlType="submit"
+            className="login-form-button"
+            block
+            style={{
+              height: "45px",
+              fontWeight: "400px",
+              fontSize: "18px",
+              background: "#F27405",
+              color: "white",
+              alignSelf: "bottom",
+              marginTop: "30px",
+            }}
+          >
+            Send a Code
+          </Button>
+        </Form.Item>
       </Form>
     </div>
   );

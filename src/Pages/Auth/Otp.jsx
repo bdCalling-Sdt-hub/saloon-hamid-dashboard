@@ -31,14 +31,13 @@ const Otp = () => {
     <div
       style={{
         width: "100%",
-        background: "#BFF2EE",
         height: "100vh",
         display:"flex",
         alignItems: "center",
         justifyContent: "center"
       }}
     >
-      <div style={{width: "630px",  background: "white", borderRadius: "12px", padding: "90px 57px"}}>
+      <div style={{width: "630px",  background: "white", borderRadius: "12px", padding: "90px 57px" , boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px'}}>
         <h1 style={{fontSize: "32px", color: "#6A6D7C", marginBottom: "13px", textAlign: "center"}}>Check your email</h1>
         <p style={{width: "380px", color: "#B8B8B8",  margin: "0 auto 0 auto"}}>
           We sent a reset link to <span style={{color: "#545454"}}> contact@dscode...com </span>
