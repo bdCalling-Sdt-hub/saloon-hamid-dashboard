@@ -2,6 +2,7 @@ import { Form, Input, Modal, Table, Button } from 'antd';
 import React, { useState } from 'react'
 import { MdOutlineDelete } from 'react-icons/md';
 import BackButton from './BackButton';
+import { FaPlus } from 'react-icons/fa6';
 
 
 const data = [
@@ -47,19 +48,19 @@ const data = [
         email: "nadir@gmail.com",
         userType: "ADMIN",
     }
-  ];
-  
+];
+
 const MakeAdmin = () => {
     const [openAddModel, setOpenAddModel] = useState(false);
     const [reFresh, setReFresh] = useState("");
-
-    if(reFresh){
-        setTimeout(()=>{
+    const [open, setOpen] = useState(false)
+    if (reFresh) {
+        setTimeout(() => {
             setReFresh("")
         }, 1500)
     }
 
-    const handleDelete=async(value)=>{
+    const handleDelete = async (value) => {
         /* Swal.fire({
             title: "Are you sure to delete this User?",
             icon: "warning",
@@ -96,48 +97,48 @@ const MakeAdmin = () => {
     }
     const columns = [
         {
-          title: 'Full Name',
-          dataIndex: 'name',
-          key: 'name',
-          render: (_, record) => <p>{record?.fullName}</p>,
+            title: 'Full Name',
+            dataIndex: 'name',
+            key: 'name',
+            render: (_, record) => <p>{record?.fullName}</p>,
         },
         {
-          title: 'Email',
-          dataIndex: 'email',
-          key: 'email',
+            title: 'Email',
+            dataIndex: 'email',
+            key: 'email',
         },
         {
-          title: 'User Type',
-          dataIndex: 'userType',
-          key: 'userType',
+            title: 'User Type',
+            dataIndex: 'userType',
+            key: 'userType',
         },
         {
-          title: 'Action',
-          key: 'action',
-          render: (_, record) => (
-            <MdOutlineDelete onClick={()=>handleDelete(record)} className='cursor-pointer' size={25} color='red'/>
-          ),
+            title: 'Action',
+            key: 'action',
+            render: (_, record) => (
+                <MdOutlineDelete onClick={() => { handleDelete(record), setOpen(true) }} className='cursor-pointer' size={25} color='red' />
+            ),
         },
     ];
     return (
         <div >
-            <div style={{margin: "24px 0"}}>
-                <div style={{display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%"}} >
-                    <BackButton link="/" />
-                    <button 
-                        onClick={()=>setOpenAddModel(true)}
+            <div style={{ margin: "24px 0" }}>
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%" }} >
+                    <h3 className='text-2xl'>Make Admin</h3>
+                    <button className='flex justify-center items-center gap-2'
+                        onClick={() => setOpenAddModel(true)}
                         style={{
                             width: "164px",
                             height: "36px",
-                            borderRadius:"8px",
-                            color:"white",
-                            backgroundColor:"#F27405",
-                            border:"none",
+                            borderRadius: "8px",
+                            color: "white",
+                            backgroundColor: "#F27405",
+                            border: "none",
                             outline: "none",
                             cursor: "pointer"
                         }}
                     >
-                        Make Admin
+                        <FaPlus /> Make Admin
                     </button>
                 </div>
             </div>
@@ -150,23 +151,23 @@ const MakeAdmin = () => {
                 width={500}
                 footer={false}
             >
-                <div>
-                    <h1 style={{marginBottom: "12px"}}>Make Admin</h1>
+                <div className='p-6'>
+                    <h1 style={{ marginBottom: "12px" }}>Make Admin</h1>
                     <Form
                         name="normal_login"
                         initialValues={{
                             remember: true,
                         }}
                     >
-                        <div style={{marginBottom: "16px"}}>
-                            <label style={{display: "block", marginBottom: "5px" }}>Full Name</label>
+                        <div style={{ marginBottom: "16px" }}>
+                            <label style={{ display: "block", marginBottom: "5px" }}>Full Name</label>
                             <Form.Item
-                                style={{marginBottom: 0}}
+                                style={{ marginBottom: 0 }}
                                 name="fullName"
                                 rules={[
                                     {
-                                    required: true,
-                                    message: "Please input User Full Name",
+                                        required: true,
+                                        message: "Please input User Full Name",
                                     },
                                 ]}
                             >
@@ -174,51 +175,51 @@ const MakeAdmin = () => {
                                     placeholder="Enter Full Name"
                                     type="text"
                                     style={{
-                                    border: "1px solid #E0E4EC",
-                                    height: "52px",
-                                    background: "white",
-                                    borderRadius: "8px",
-                                    outline: "none",
+                                        border: "1px solid #E0E4EC",
+                                        height: "52px",
+                                        background: "white",
+                                        borderRadius: "8px",
+                                        outline: "none",
                                     }}
                                 />
                             </Form.Item>
                         </div>
-            
-                        <div style={{marginBottom: "16px"}}>
-                            <label style={{display: "block", marginBottom: "5px" }} htmlFor="">Email </label>
+
+                        <div style={{ marginBottom: "16px" }}>
+                            <label style={{ display: "block", marginBottom: "5px" }} htmlFor="">Email </label>
                             <Form.Item
                                 name="email"
                                 rules={[
                                     {
-                                    required: true,
-                                    message: "Please input User Email",
+                                        required: true,
+                                        message: "Please input User Email",
                                     },
                                 ]}
-                                style={{marginBottom: 0}}
+                                style={{ marginBottom: 0 }}
                             >
                                 <Input
                                     type="text"
                                     placeholder="Enter User Email"
                                     style={{
-                                    border: "1px solid #E0E4EC",
-                                    height: "52px",
-                                    background: "white",
-                                    borderRadius: "8px",
-                                    outline: "none",
+                                        border: "1px solid #E0E4EC",
+                                        height: "52px",
+                                        background: "white",
+                                        borderRadius: "8px",
+                                        outline: "none",
                                     }}
                                 />
                             </Form.Item>
                         </div>
-            
-                        <div style={{marginBottom: "16px"}}>
-                            <label style={{display: "block", marginBottom: "5px" }} htmlFor="password">Password</label>
+
+                        <div style={{ marginBottom: "16px" }}>
+                            <label style={{ display: "block", marginBottom: "5px" }} htmlFor="password">Password</label>
                             <Form.Item
-                                style={{marginBottom: 0}}
+                                style={{ marginBottom: 0 }}
                                 name="password"
                                 rules={[
                                     {
-                                    required: true,
-                                    message: "Please input User Password!",
+                                        required: true,
+                                        message: "Please input User Password!",
                                     },
                                 ]}
                             >
@@ -226,20 +227,20 @@ const MakeAdmin = () => {
                                     type="password"
                                     placeholder="Enter User password"
                                     style={{
-                                    border: "1px solid #E0E4EC",
-                                    height: "52px",
-                                    background: "white",
-                                    borderRadius: "8px",
-                                    outline: "none",
+                                        border: "1px solid #E0E4EC",
+                                        height: "52px",
+                                        background: "white",
+                                        borderRadius: "8px",
+                                        outline: "none",
                                     }}
                                 />
                             </Form.Item>
                         </div>
 
-                        <div style={{marginBottom: "16px"}}>
-                            <label style={{display: "block", marginBottom: "5px" }} htmlFor="password">User Type</label>
+                        <div style={{ marginBottom: "16px" }}>
+                            <label style={{ display: "block", marginBottom: "5px" }} htmlFor="password">User Type</label>
                             <Form.Item
-                                style={{marginBottom: 0}}
+                                style={{ marginBottom: 0 }}
                                 name="userType"
                             >
                                 <Input
@@ -257,7 +258,7 @@ const MakeAdmin = () => {
                                 />
                             </Form.Item>
                         </div>
-            
+
                         <Form.Item>
                             <Button
                                 type="primary"
@@ -276,6 +277,28 @@ const MakeAdmin = () => {
                             </Button>
                         </Form.Item>
                     </Form>
+                </div>
+            </Modal>
+            <Modal
+                centered
+                open={open}
+                onCancel={() => setOpen(false)}
+                width={400}
+                footer={false}
+            >
+                <div className="p-6 text-center">
+                    <p className="text-[#F27405] text-center font-semibold">
+                        Are you sure !
+                    </p>
+                    <p className="pt-4 pb-12 text-center">
+                        Do you want to delete this content ?
+                    </p>
+                    <button
+                        onClick={() => setOpen(false)}
+                        className="bg-[#F27405] py-2 px-5 text-white rounded-md"
+                    >
+                        Confirm
+                    </button>
                 </div>
             </Modal>
         </div>

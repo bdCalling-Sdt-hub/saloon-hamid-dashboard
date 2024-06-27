@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Link, Outlet, useNavigate, useLocation } from "react-router-dom";
 import LogoText from "../../assets/logo-text.png";
 import { HiLogout } from "react-icons/hi";
-import { LuUser } from "react-icons/lu";
+import { LuUser, LuUserPlus } from "react-icons/lu";
 import { TbCategoryMinus, TbShoppingCartDollar } from "react-icons/tb";
 import { MdDashboard } from "react-icons/md";
 import { IoSettings } from "react-icons/io5";
@@ -14,7 +14,7 @@ import { MdKeyboardArrowRight } from "react-icons/md";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { FaFileInvoiceDollar, FaFire, FaRuler, FaStore } from "react-icons/fa6";
 import { TiShoppingCart } from "react-icons/ti";
-import { IoMdNotificationsOutline } from "react-icons/io";
+import { IoIosChatbubbles, IoMdNotificationsOutline } from "react-icons/io";
 const Dashboard = () => {
   const [dropdown, setDropdown] = useState(false)
   const { pathname } = useLocation();
@@ -67,6 +67,16 @@ const Dashboard = () => {
       icon: <TbShoppingCartDollar size={24} />,
     },
     {
+      title: "Make Admin",
+      path: "/make-admin",
+      icon: <LuUserPlus size={24} />,
+    },
+    {
+      title: "Chat",
+      path: "/chat",
+      icon: <IoIosChatbubbles size={24} />,
+    },
+    {
       title: "Salon Invoice",
       path: "/salon-invoice",
       icon: <FaFileInvoiceDollar size={24} />,
@@ -81,6 +91,10 @@ const Dashboard = () => {
     {
       title: "Slider Setting",
       path: "/slider-setting",
+    },
+    {
+      title: "Manage Haircut offers",
+      path: "/manage-haircut-offers",
     },
     {
       title: "About Us",
@@ -101,14 +115,6 @@ const Dashboard = () => {
     {
       title: "Terms & Condition",
       path: "/terms-condition",
-    },
-    {
-      title: "Setting",
-      path: "/banner",
-    },
-    {
-      title: "Feedback",
-      path: "/feedback",
     },
   ]
   return (
@@ -302,22 +308,17 @@ const Dashboard = () => {
               width: "280px",
               display: "flex",
               alignItems: "center",
-              // gap: "16px",
-              justifyContent: "space-between"
+              gap: "16px",
+              justifyContent: "end"
             }}
           >
-            <Badge color="#23A095" count={5}>
-              <Link to="/emails" >
-                <RiChat1Line color="#6A6A6A" size={24} />
-              </Link>
-            </Badge>
 
             <Badge color="#C30303" count={5}>
               <Link to="/notification" >
                 <RiNotification2Line color="#6A6A6A" size={24} />
               </Link>
             </Badge>
-            <div
+            <div onClick={()=>navigate('/profile')} className="border cursor-pointer"
               style={{
                 width: "170px",
                 height: "42px",

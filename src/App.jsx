@@ -28,6 +28,12 @@ import ProductCategory from "./Pages/Dashboard/ProductCategory";
 import OrdersTransection from "./Pages/Dashboard/OrdersTransection";
 import SalonInvoice from "./Pages/Dashboard/SalonInvoice";
 import SliderSetting from "./Pages/Dashboard/SliderSetting";
+import ManageHaircutoffers from "./Pages/Dashboard/ManageHaircutoffers";
+import About from "./Pages/Dashboard/About";
+import FAQ from "./Pages/Dashboard/FAQ";
+import PrivacyPolicy from "./Pages/Dashboard/PrivacyPolicy";
+import Terms from "./Pages/Dashboard/Terms";
+import AdminProfile from "./Pages/Dashboard/AdminProfile";
 
 function App() {
   return (
@@ -47,9 +53,15 @@ function App() {
               <Route path="/orders-transaction" element={<OrdersTransection />} />
               <Route path="/salon-invoice" element={<SalonInvoice />} />
               <Route path="/slider-setting" element={<SliderSetting />} />
+              <Route path="/manage-haircut-offers" element={<ManageHaircutoffers />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/faq" element={<FAQ />} />
+              <Route path="/privacy" element={<PrivacyPolicy />} />
+              <Route path="/terms-condition" element={<Terms />} />
               <Route path="/package" element={<Package />} />
               <Route path="/edit-package" element={<EditPackage />} />
               <Route path="/make-admin" element={<MakeAdmin />} />
+              <Route path="/profile" element={<AdminProfile />} />
               <Route path="/setting-change-password" element={<ChangePassword />} />
               <Route path="/settings-profile" element={<Profile />} />
               <Route path="/seller-list" element={<TotalSellerList  />} />
@@ -58,7 +70,6 @@ function App() {
               <Route path="/emails" element={<Emails />} />
               <Route path="/top-seller-list" element={<TopSellerList />} />
             </Route>
-
             <Route path="/login" element={<Login />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/otp" element={<Otp />} />
