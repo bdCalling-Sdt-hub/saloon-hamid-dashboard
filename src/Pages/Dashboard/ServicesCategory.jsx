@@ -22,6 +22,7 @@ const data = [
 ];
 
 const ServicesCategory = () => {
+    const [formFor, setFormFor] = useState('add')
     const [value, setValue] = useState(new URLSearchParams(window.location.search).get('date') || new Date().toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' }));
     const [page, setPage] = useState(new URLSearchParams(window.location.search).get('page') || 1);
     const [open, setOpen] = useState(false)
@@ -87,8 +88,8 @@ const ServicesCategory = () => {
             key: "printView",
             render: (_, record) => (
                 <div className='flex justify-start items-center gap-2'>
-                    <FaEdit onClick={() => { setOpenAddSalon(true) }} className="text-[#F25C05] text-2xl cursor-pointer" />
-                    <MdDelete onClick={() => {setOpen(true) }} className="text-[#F25C05] text-2xl cursor-pointer" />
+                    <FaEdit onClick={() => { { setOpenAddSalon(true); setFormFor('update') } }} className="text-[#F25C05] text-2xl cursor-pointer" />
+                    <MdDelete onClick={() => { setOpen(true) }} className="text-[#F25C05] text-2xl cursor-pointer" />
                 </div>
             ),
         },
@@ -113,12 +114,12 @@ const ServicesCategory = () => {
             >
                 <h1 style={{ fontSize: "20px", fontWeight: 600, color: "#2F2F2F" }}>Manage Services Category</h1>
                 <div className='flex justify-end items-center gap-3'>
-                    <button className='text-2xl'>
+                    {/* <button className='text-2xl'>
                         <FaRegFilePdf />
-                    </button>
-                    <button onClick={() => setOpenAddSalon(true)} className='flex justify-start items-center gap-2 text-white p-2 rounded-md bg-[#F27405]'>
+                    </button> */}
+                    <button onClick={() => { setOpenAddSalon(true); setFormFor('add') }} className='flex justify-start items-center gap-2 text-white p-2 rounded-md bg-[#F27405]'>
                         <FaPlus />
-                        Add Category
+                        Add Service
                     </button>
                 </div>
             </div>
@@ -141,8 +142,8 @@ const ServicesCategory = () => {
                 width={500}
             >
                 <div className='bg-white p-6 rounded-md'>
-                    <p className='text-[#F27405] text-lg font-medium'> Add Hair style</p>
-                    <CreateSalonCategoryFrom />
+                    <p className='text-[#F27405] text-lg font-medium'> {formFor == 'add' ? 'Add' : 'Update'} Hair style</p>
+                    <CreateSalonCategoryFrom formFor={formFor} />
                 </div>
             </Modal>
             <Modal
@@ -157,10 +158,10 @@ const ServicesCategory = () => {
                         Are you sure !
                     </p>
                     <p className="pt-4 pb-12 text-center">
-                        Do you want to delete this content ?
+                        Do you want to delete this service ?
                     </p>
                     <button
-                        onClick={()=>setOpen(false)}
+                        onClick={() => setOpen(false)}
                         className="bg-[#F27405] py-2 px-5 text-white rounded-md"
                     >
                         Confirm

@@ -6,6 +6,7 @@ import { Input } from 'antd';
 import { FaLocationArrow } from 'react-icons/fa6';
 
 const Chat = () => {
+    const [user, setUser] = useState(false)
     const [partnerId, setPartnerId] = useState("");
     const scrollRef = useRef();
     const [keyword, setKeyword] = useState("");
@@ -38,7 +39,7 @@ const Chat = () => {
         <div className="bg-white shadow-lg rounded-lg p-6 h-[86vh] overflow-hidden">
 
             {/* helmet */}
-            <h1 className={`text-[#12354E] text-base leading-8 poppins-semibold text-left mb-5 `}>Patient Message</h1>
+            <h1 className={`text-[#12354E] text-base leading-8 poppins-semibold text-left mb-5 font-semibold`}> Message</h1>
 
             {/* message read and unread section */}
 
@@ -49,6 +50,14 @@ const Chat = () => {
             <div className='grid grid-cols-12 gap-6 mt-4 h-[76vh] '>
 
                 <div className="col-span-3 w-full bg-[#FCFCFC]  rounded-lg p-4 overflow-y-scroll scroll-bar" style={{ boxShadow: "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px" }}>
+                    <div className='flex justify-start items-center gap-3 mb-4  text-base capitalize'>
+                        <button onClick={() => {
+                            setUser(true)
+                        }} className={`pb-3 ${user ? 'border-orange-500 border-b-4' : ''}`}>User</button>
+                        <button onClick={() => {
+                            setUser(false)
+                        }} className={`pb-3 ${user ? '' : 'border-orange-500 border-b-4'}`}>Professionals</button>
+                    </div>
                     <div>
                         <Input
                             prefix={<GoSearch color="#B6C0C8" size={16} />}
@@ -62,7 +71,6 @@ const Chat = () => {
                             }}
                             className="poppins-regular text-[#B6C0C8] text-[14px] leading-5"
                         />
-
                         <div className='mt-[14px] grid grid-cols-1 gap-1'>
                             {
                                 [...Array(20).keys()]?.map((patient, index) => {
@@ -90,6 +98,20 @@ const Chat = () => {
 
 
                 <div className='relative h-full w-full col-span-9'>
+                    <div className={`flex cursor-pointer items-center gap-[10px] bg-[#FDFDFD]  rounded-lg p-2`}>
+                        <img
+                            src={`https://i.ibb.co/d4RSbKx/Ellipse-980.png`}
+                            style={{ width: 56, height: 56, borderRadius: "100%", border: "2px solid #92A2AE" }}
+                            alt=""
+                        />
+                        <div className='w-full'>
+                            <div className='flex items-center justify-between pb-[6px]'>
+                                <h1 className='text-[#12354E] poppins-medium  text-sm leading-5'>jon doe</h1>
+                                {/* <p className='text-[#8B8B8B] poppins-regular  text-sm leading-5'>3:00 PM</p> */}
+                            </div>
+                            <p className='text-[#8B8B8B] poppins-regular  text-sm leading-5'>jondoe@gmail.com</p>
+                        </div>
+                    </div>
                     <div className=' h-[76vh] p-6 pb-20 overflow-y-scroll bg-[#FEF1E6]' style={{ boxShadow: "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px" }}>
                         {[...Array(50).keys()].map((item, index) => <p className={`${index % 2 == 0 ? `ml-auto bg-[#FFFFFF]` : 'bg-[#E5E5E5]'} py-2 my-1 w-fit px-6 rounded-md`} key={index}>
                             {index % 2 == 0 ? `Lorem ipsum dolor sit amet consectetur.` : 'Lorem ipsum dolor sit amet consectetur.'}

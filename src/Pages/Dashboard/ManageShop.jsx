@@ -23,6 +23,7 @@ const data = [
 
 
 const ManageShop = () => {
+    const [formFor, setFormFor] = useState('add')
     const [value, setValue] = useState(new URLSearchParams(window.location.search).get('date') || new Date().toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' }));
     const [page, setPage] = useState(new URLSearchParams(window.location.search).get('page') || 1);
     const [open, setOpen] = useState(false)
@@ -93,7 +94,7 @@ const ManageShop = () => {
             key: "printView",
             render: (_, record) => (
                 <div className='flex justify-start items-center gap-2'>
-                    <FaEdit onClick={() => { setOpenAddSalon(true) }} className="text-[#F25C05] text-2xl cursor-pointer" />
+                    <FaEdit onClick={() => { setOpenAddSalon(true); setFormFor('update') }} className="text-[#F25C05] text-2xl cursor-pointer" />
                     <MdDelete onClick={() => { setOpen(true) }} className="text-[#F25C05] text-2xl cursor-pointer" />
                 </div>
             ),
@@ -115,16 +116,29 @@ const ManageShop = () => {
             borderRadius: "12px"
         }}>
             <div className='mb-6 flex justify-between items-center'
-
             >
                 <h1 style={{ fontSize: "20px", fontWeight: 600, color: "#2F2F2F" }}>All E-Shop products</h1>
                 <div className='flex justify-end items-center gap-3'>
+                    <Select className='min-w-44 h-[40px]'
+                        onChange={handleChange}
+                        mode="multiple"
+                        showSearch
+                        placeholder="Category"
+                        filterOption={(input, option) =>
+                            (option?.label ?? '').toLowerCase().includes(input.toLowerCase())
+                        }
+                        options={[
+                            { value: '1', label: 'Jack' },
+                            { value: '2', label: 'Lucy' },
+                            { value: '3', label: 'Tom' },
+                        ]}
+                    />
                     <button className='text-2xl'>
                         <FaRegFilePdf />
                     </button>
-                    <button onClick={() => setOpenAddSalon(true)} className='flex justify-start items-center gap-2 text-white p-2 rounded-md bg-[#F27405]'>
+                    <button onClick={() => { setOpenAddSalon(true); setFormFor('add') }} className='flex justify-start items-center gap-2 text-white p-2 rounded-md bg-[#F27405]'>
                         <FaPlus />
-                        Add Service
+                        Add Product
                     </button>
                 </div>
             </div>
@@ -147,8 +161,8 @@ const ManageShop = () => {
                 width={500}
             >
                 <div className='bg-white p-6 rounded-md'>
-                    <p className='text-[#F27405] text-lg font-medium'>Add E-Shop products</p>
-                    <CreateProductFrom setOpen={setOpenAddSalon} />
+                    <p className='text-[#F27405] text-lg font-medium'>{formFor == 'add' ? 'Add' : 'Update'} E-Shop products</p>
+                    <CreateProductFrom formFor={formFor} setOpen={setOpenAddSalon} />
                 </div>
             </Modal>
             <Modal

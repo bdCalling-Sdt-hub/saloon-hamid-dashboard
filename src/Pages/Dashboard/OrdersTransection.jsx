@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Calendar, Dropdown, Form, Input, Modal, Select, Slider, Table, Button, Checkbox, } from 'antd';
+import { Calendar, Dropdown, Form, Input, Modal, Select, Slider, Table, Button, Checkbox, DatePicker, } from 'antd';
 import { FaCircle, FaPlus, FaRegFilePdf, FaRegTrashCan, FaStar, FaUserCheck } from 'react-icons/fa6';
 import Swal from 'sweetalert2';
 import { GoArrowUpRight } from 'react-icons/go';
@@ -146,6 +146,10 @@ const OrdersTransection = () => {
     const handleChange = (value) => {
         console.log(`selected ${value}`);
     };
+
+    const onChange = (date, dateString) => {
+        console.log(date, dateString);
+    };
     return (
         <div style={{
             background: "white",
@@ -155,7 +159,7 @@ const OrdersTransection = () => {
             <div className='mb-6 flex justify-between items-center'
 
             >
-                <h1 style={{ fontSize: "20px", fontWeight: 600, color: "#2F2F2F" }}>Salons Services</h1>
+                <h1 style={{ fontSize: "20px", fontWeight: 600, color: "#2F2F2F" }}>All Transition</h1>
                 <div className='flex justify-end items-center gap-3'>
                     <button className='text-2xl'>
                         <FaRegFilePdf />
@@ -179,6 +183,11 @@ const OrdersTransection = () => {
                             size="middle"
                         />
                     </div>
+                    <DatePicker style={{
+                        width: "170px",
+                        height: "39px",
+                        borderRadius: "8px"
+                    }} onChange={onChange} />
                     <Select className='min-w-44 h-[40px]'
                         onChange={handleChange}
                         showSearch

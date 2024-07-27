@@ -79,19 +79,14 @@ const TotalSellerList = () => {
       key: "email",
     },
     {
-      title: "Location",
-      dataIndex: "location",
-      key: "location",
-    },
-    {
       title: "Contact",
       dataIndex: "contact",
       key: "contact",
     },
     {
-      title: "Date",
-      dataIndex: "date",
-      key: "date",
+      title: "Location",
+      dataIndex: "location",
+      key: "location",
     },
     {
       title: "ACTION",
@@ -131,7 +126,7 @@ const TotalSellerList = () => {
       <div className='mb-6 flex justify-between items-center'
 
       >
-        <h1 style={{ fontSize: "20px", fontWeight: 600, color: "#2F2F2F" }}>Total Seller List</h1>
+        <h1 style={{ fontSize: "20px", fontWeight: 600, color: "#2F2F2F" }}>All User Details</h1>
         <div className='flex justify-end items-center gap-3'>
           <button className='text-2xl'>
             <FaRegFilePdf />

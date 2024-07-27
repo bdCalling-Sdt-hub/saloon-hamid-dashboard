@@ -15,6 +15,94 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 import { FaFileInvoiceDollar, FaFire, FaRuler, FaStore } from "react-icons/fa6";
 import { TiShoppingCart } from "react-icons/ti";
 import { IoIosChatbubbles, IoMdNotificationsOutline } from "react-icons/io";
+export const linkItems = [
+  {
+    title: "Dashboard",
+    path: "/",
+    icon: <MdDashboard size={24} />,
+  },
+  {
+    title: "User details",
+    path: "/seller-list",
+    icon: <LuUser size={24} />,
+  },
+  {
+    title: "Salons Details",
+    path: "/salons-setails",
+    icon: <FaStore size={24} />,
+  },
+  {
+    title: "Salons Services",
+    path: "/salons-services",
+    icon: <FaFire size={24} />,
+  },
+  {
+    title: "Services Category",
+    path: "/services-category",
+    icon: <FaRuler size={24} />,
+  },
+  {
+    title: "Manage E-Shop",
+    path: "/manage-shop",
+    icon: <TiShoppingCart size={24} />,
+  },
+  {
+    title: "E-Shop Category",
+    path: "/product-category",
+    icon: <TbCategoryMinus size={24} />,
+  },
+  {
+    title: "Orders Transaction",
+    path: "/orders-transaction",
+    icon: <TbShoppingCartDollar size={24} />,
+  },
+  {
+    title: "Make Admin",
+    path: "/make-admin",
+    icon: <LuUserPlus size={24} />,
+  },
+  {
+    title: "Chat",
+    path: "/chat",
+    icon: <IoIosChatbubbles size={24} />,
+  },
+  {
+    title: "Salon Invoice",
+    path: "/salon-invoice",
+    icon: <FaFileInvoiceDollar size={24} />,
+  },
+  {
+    title: "Notifications",
+    path: "/notification",
+    icon: <IoMdNotificationsOutline size={24} />,
+  },
+];
+export const settingOptions = [
+  {
+    title: "Slider Setting",
+    path: "/slider-setting",
+  },
+  {
+    title: "Manage Haircut offers",
+    path: "/manage-haircut-offers",
+  },
+  {
+    title: "About Us",
+    path: "/about",
+  },
+  {
+    title: "FAQ",
+    path: "/faq",
+  },
+  {
+    title: "Privacy Policy",
+    path: "/privacy",
+  },
+  {
+    title: "Terms & Condition",
+    path: "/terms-condition",
+  },
+]
 const Dashboard = () => {
   const [dropdown, setDropdown] = useState(false)
   const { pathname } = useLocation();
@@ -25,100 +113,9 @@ const Dashboard = () => {
     window.location.reload();
   }
 
-  const linkItems = [
-    {
-      title: "Dashboard",
-      path: "/",
-      icon: <MdDashboard size={24} />,
-    },
-    {
-      title: "All user details",
-      path: "/seller-list",
-      icon: <LuUser size={24} />,
-    },
-    {
-      title: "Salons Details",
-      path: "/salons-setails",
-      icon: <FaStore size={24} />,
-    },
-    {
-      title: "Salons Services",
-      path: "/salons-services",
-      icon: <FaFire size={24} />,
-    },
-    {
-      title: "Services Category",
-      path: "/services-category",
-      icon: <FaRuler size={24} />,
-    },
-    {
-      title: "Manage E-Shop",
-      path: "/manage-shop",
-      icon: <TiShoppingCart size={24} />,
-    },
-    {
-      title: "E-Shop Category",
-      path: "/product-category",
-      icon: <TbCategoryMinus size={24} />,
-    },
-    {
-      title: "Orders Transaction",
-      path: "/orders-transaction",
-      icon: <TbShoppingCartDollar size={24} />,
-    },
-    {
-      title: "Make Admin",
-      path: "/make-admin",
-      icon: <LuUserPlus size={24} />,
-    },
-    {
-      title: "Chat",
-      path: "/chat",
-      icon: <IoIosChatbubbles size={24} />,
-    },
-    {
-      title: "Salon Invoice",
-      path: "/salon-invoice",
-      icon: <FaFileInvoiceDollar size={24} />,
-    },
-    {
-      title: "Notifications",
-      path: "/notification",
-      icon: <IoMdNotificationsOutline size={24} />,
-    },
-  ];
-  const settingOptions = [
-    {
-      title: "Slider Setting",
-      path: "/slider-setting",
-    },
-    {
-      title: "Manage Haircut offers",
-      path: "/manage-haircut-offers",
-    },
-    {
-      title: "About Us",
-      path: "/about",
-    },
-    {
-      title: "Contact Us",
-      path: "/contact",
-    },
-    {
-      title: "FAQ",
-      path: "/faq",
-    },
-    {
-      title: "Privacy Policy",
-      path: "/privacy",
-    },
-    {
-      title: "Terms & Condition",
-      path: "/terms-condition",
-    },
-  ]
+
   return (
-    <Layout style={{ height: "100vh", width: "100vw"}}>
+    <Layout style={{ height: "100vh", width: "100vw" }}>
       <Sider
         width="233px"
         trigger={null}
@@ -129,10 +126,9 @@ const Dashboard = () => {
           overflowY: "hidden",
           zIndex: 2,
           backgroundColor: "white",
-          overflowY:'scroll'
+          overflowY: 'scroll'
         }}
       >
-
         <div className="mt-4 mb-6" style={{
           display: "flex",
           justifyContent: "center",
@@ -174,7 +170,7 @@ const Dashboard = () => {
                   null
 
               }
-              <Link className={`${item.path === pathname ? "bg-[#F27405] text-[#FFFFFF]" : 'text-[#F27405]'} py-2 rounded hover:bg-[#F27405] hover:text-[#FFFFFF] w-full px-2`}
+              <Link className={`${item.path === pathname ? "bg-[#F27405] text-[#FFFFFF]" : 'text-[#2b2a2a]'} py-2 rounded hover:bg-[#F27405] hover:text-[#FFFFFF] w-full px-2`}
                 to={item.path}
                 style={{
                   display: "flex",
@@ -224,7 +220,7 @@ const Dashboard = () => {
               borderRadius: '4px',
               position: "relative",
               backgroundColor: dropdown ? "#F27405" : '',
-              color: dropdown ? "#fff" : '#F27405',
+              color: dropdown ? "#fff" : '#2b2a2a',
             }}>
               <IoSettingsOutline size={24} />
 
@@ -246,19 +242,19 @@ const Dashboard = () => {
                   left: "0px",
                   top: "40px",
                   width: '100%',
-                  paddingLeft:'4px',
+                  paddingLeft: '4px',
                   zIndex: '100'
                 }}
               >
                 {
                   settingOptions?.map((item, index) => <Link key={index} to={item?.path} style={{
                     textAlign: 'center',
-                    color:  item.path === pathname ? "#FBFBFB" : '#f27405',
+                    color: item.path === pathname ? "#FBFBFB" : '#2b2a2a',
                     width: '100%',
                     backgroundColor: item.path === pathname ? "#f27405" : '#FBFBFB',
                     display: 'block',
                     padding: '7px 0px',
-                    borderRadius:'4px',
+                    borderRadius: '4px',
                   }}>
                     <p>{item?.title}</p>
                   </Link>)
@@ -317,7 +313,7 @@ const Dashboard = () => {
                 <RiNotification2Line color="#6A6A6A" size={24} />
               </Link>
             </Badge>
-            <div onClick={()=>navigate('/profile')} className="border cursor-pointer"
+            <div onClick={() => navigate('/profile')} className="border cursor-pointer"
               style={{
                 width: "170px",
                 height: "42px",

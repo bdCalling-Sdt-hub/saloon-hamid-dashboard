@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { CiEdit } from "react-icons/ci";
 import { FaPlus } from "react-icons/fa6";
 import { GoQuestion } from "react-icons/go";
+import { MdDelete } from "react-icons/md";
 import { RxCross2 } from "react-icons/rx";
 
 import Swal from "sweetalert2";
@@ -124,7 +125,7 @@ const FAQ = () => {
                 </p>
               </div>
             </div>
-            <div className="w-[4%] flex justify-start items-center pt-4 gap-2">
+            <div className="w-[4%] flex justify-start items-center pt-4 gap-2 text-orange-600">
               <CiEdit
                 onClick={() => {
                   setOpenEditModal(true);
@@ -137,7 +138,7 @@ const FAQ = () => {
                 }}
                 className="text-2xl cursor-pointer"
               />
-              <RxCross2
+              <MdDelete
                 onClick={() => {
                   setDeleteId(item?._id);
                   setShowDelete(true);

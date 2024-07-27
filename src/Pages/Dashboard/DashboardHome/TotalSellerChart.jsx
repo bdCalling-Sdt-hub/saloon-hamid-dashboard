@@ -105,24 +105,44 @@ const TotalSellerChart = () => {
   const onClick = ({ key }) => {
     setYear(key)
   };
+  const legendFormatter = (value) => {
+    switch (value) {
+      case 'pv':
+        return 'App User';
+      case 'uv':
+        return 'Active User';
+      default:
+        return value;
+    }
+  };
   return (
     <div className='w-full h-full'>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <p style={{ marginTop: "10px", fontSize: "20px", fontWeight: 600, marginBottom: "10px", color: "black", }}>Total users statistics</p>
-        <Dropdown menu={{ items, onClick }} >
-          <p style={{
-            // width: "79px", 
-            cursor: "pointer",
-            color: '#717171',
-            border: "1px solid #E9E9E9",
-            borderRadius: "4px",
-            padding: "4px 12px"
-          }} onClick={(e) => e.preventDefault()}
-          >
-            {year}
-            <DownOutlined style={{ paddingLeft: "18px" }} color='#717171' />
-          </p>
-        </Dropdown>
+        <div className='flex justify-end items-center gap-5'>
+          <span className='flex justify-end items-center gap-1 text-[#F27405]'>
+            <span className='w-[15px] h-[15px] rounded-full bg-[#F27405]'></span>
+            <p>App user</p>
+          </span>
+          <span className='flex justify-end items-center gap-1 text-[green]'>
+            <span className='w-[15px] h-[15px] rounded-full bg-[green]'></span>
+            <p>Active user</p>
+          </span>
+          <Dropdown menu={{ items, onClick }} >
+            <p style={{
+              // width: "79px", 
+              cursor: "pointer",
+              color: '#717171',
+              border: "1px solid #E9E9E9",
+              borderRadius: "4px",
+              padding: "4px 12px"
+            }} onClick={(e) => e.preventDefault()}
+            >
+              {year}
+              <DownOutlined style={{ paddingLeft: "18px" }} color='#717171' />
+            </p>
+          </Dropdown>
+        </div>
       </div>
 
       <div className='w-full h-[300px]'>
@@ -142,7 +162,7 @@ const TotalSellerChart = () => {
             <XAxis dataKey="name" />
             <YAxis />
             <Tooltip />
-            <Legend />
+            {/* <Legend formatter={legendFormatter} /> */}
             <Bar dataKey="pv" fill="#F27405" background={{ fill: '#eee' }} />
             <Bar dataKey="uv" fill="#00B047" />
           </BarChart>

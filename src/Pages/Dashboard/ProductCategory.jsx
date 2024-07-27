@@ -23,6 +23,7 @@ const data = [
 
 
 const ProductCategory = () => {
+    const [formFor, setFromFor] = useState('add')
     const [value, setValue] = useState(new URLSearchParams(window.location.search).get('date') || new Date().toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' }));
     const [page, setPage] = useState(new URLSearchParams(window.location.search).get('page') || 1);
     const [open, setOpen] = useState(false)
@@ -81,7 +82,7 @@ const ProductCategory = () => {
             render: (_, record) => (
                 <div className='flex justify-start items-center gap-2'>
                     <FaEdit onClick={() => { setOpenAddSalon(true) }} className="text-[#F25C05] text-2xl cursor-pointer" />
-                    <MdDelete onClick={() => {setOpen(true) }} className="text-[#F25C05] text-2xl cursor-pointer" />
+                    <MdDelete onClick={() => { setOpen(true) }} className="text-[#F25C05] text-2xl cursor-pointer" />
                 </div>
             ),
         },
@@ -150,10 +151,10 @@ const ProductCategory = () => {
                         Are you sure !
                     </p>
                     <p className="pt-4 pb-12 text-center">
-                        Do you want to delete this content ?
+                        Do you want to delete this Category ?
                     </p>
                     <button
-                        onClick={()=>setOpen(false)}
+                        onClick={() => setOpen(false)}
                         className="bg-[#F27405] py-2 px-5 text-white rounded-md"
                     >
                         Confirm

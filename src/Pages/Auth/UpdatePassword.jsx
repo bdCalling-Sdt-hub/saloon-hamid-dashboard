@@ -77,7 +77,7 @@ const UpdatePassword = () => {
         </div>
     
         <div style={{marginBottom: "40px"}}>
-            <label style={{display: "block", color:"#6A6D7C", marginBottom: "5px" }} htmlFor="email">Confirm Password</label>
+            <label style={{display: "block", color:"#6A6D7C", marginBottom: "5px" }} htmlFor="email">Confirm New Password</label>
             <Form.Item
                 style={{marginBottom: 0}}
                 name="confirm_password"
@@ -118,7 +118,7 @@ const UpdatePassword = () => {
               marginTop: ""
             }}
           >
-            UPDATE
+            Update Password
           </Button>
         </Form.Item>
       </Form>

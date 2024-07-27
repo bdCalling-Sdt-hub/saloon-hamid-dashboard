@@ -156,6 +156,7 @@ const SalonsServices = () => {
                     </div>
                     <Select className='min-w-44 h-[40px]'
                         onChange={handleChange}
+                        mode="multiple"
                         showSearch
                         placeholder="Hair style"
                         filterOption={(input, option) =>
@@ -168,6 +169,7 @@ const SalonsServices = () => {
                         ]}
                     />
                     <Select className='min-w-44 h-[40px]'
+                        mode="multiple"
                         onChange={handleChange}
                         showSearch
                         placeholder="Price type"
@@ -182,6 +184,7 @@ const SalonsServices = () => {
                     />
                     <Select className='min-w-44 h-[40px]'
                         onChange={handleChange}
+                          mode="multiple"
                         showSearch
                         placeholder="Action"
                         filterOption={(input, option) =>

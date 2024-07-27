@@ -1,8 +1,9 @@
-import { Form, Input, Modal, Table, Button } from 'antd';
-import React, { useState } from 'react'
+import { Form, Input, Modal, Table, Button, Select } from 'antd';
+import React, { useEffect, useState } from 'react'
 import { MdOutlineDelete } from 'react-icons/md';
 import BackButton from './BackButton';
 import { FaPlus } from 'react-icons/fa6';
+import { linkItems, settingOptions } from './Dashboard';
 
 
 const data = [
@@ -59,7 +60,16 @@ const MakeAdmin = () => {
             setReFresh("")
         }, 1500)
     }
-
+    const [Features_list_options, setFeatures_list_options] = useState([])
+    useEffect(() => {
+        const links = linkItems?.map(item => {
+            return { value: item?.path, label: item?.title }
+        })
+        const settings = settingOptions?.map(item => {
+            return { value: item?.path, label: item?.title }
+        })
+        setFeatures_list_options([...links, ...settings])
+    }, [linkItems, settingOptions])
     const handleDelete = async (value) => {
         /* Swal.fire({
             title: "Are you sure to delete this User?",
@@ -124,7 +134,7 @@ const MakeAdmin = () => {
         <div >
             <div style={{ margin: "24px 0" }}>
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%" }} >
-                    <h3 className='text-2xl'>Make Admin</h3>
+                    <h3 className='text-2xl'>Crete Admin Profile</h3>
                     <button className='flex justify-center items-center gap-2'
                         onClick={() => setOpenAddModel(true)}
                         style={{
@@ -148,7 +158,7 @@ const MakeAdmin = () => {
                 centered
                 open={openAddModel}
                 onCancel={() => setOpenAddModel(false)}
-                width={500}
+                width={700}
                 footer={false}
             >
                 <div className='p-6'>
@@ -236,6 +246,23 @@ const MakeAdmin = () => {
                                 />
                             </Form.Item>
                         </div>
+                        <div style={{ marginBottom: "16px" }}>
+                            <label style={{ display: "block", marginBottom: "5px" }} htmlFor="password">Access List</label>
+                            <Form.Item
+                                style={{ marginBottom: 0 }}
+                                name="features_list"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: "Please input User features_list!",
+                                    },
+                                ]}
+                            >
+                                <Select style={{
+                                    minHeight: '43px'
+                                }} mode="multiple" className='min-h-[43px]' defaultValue={`choose features list`} options={Features_list_options} />
+                            </Form.Item>
+                        </div>
 
                         <div style={{ marginBottom: "16px" }}>
                             <label style={{ display: "block", marginBottom: "5px" }} htmlFor="password">User Type</label>
@@ -286,20 +313,53 @@ const MakeAdmin = () => {
                 width={400}
                 footer={false}
             >
-                <div className="p-6 text-center">
-                    <p className="text-[#F27405] text-center font-semibold">
-                        Are you sure !
-                    </p>
-                    <p className="pt-4 pb-12 text-center">
-                        Do you want to delete this content ?
-                    </p>
-                    <button
-                        onClick={() => setOpen(false)}
-                        className="bg-[#F27405] py-2 px-5 text-white rounded-md"
-                    >
-                        Confirm
-                    </button>
-                </div>
+                <Form
+                layout='vertical'
+                    name="normal_login"
+                    initialValues={{
+                        remember: true,
+                    }}
+                >
+                    <div className="p-6 text-left">
+                        <p className="text-[#F27405] text-left font-semibold">
+                            Are you sure !
+                        </p>
+                        <p className="pt-4 pb-2 text-left">
+                            Do you want to delete this content ?
+                        </p>
+                        <div style={{ marginBottom: "16px" }}>
+                            <label className='text-left' style={{ display: "block", marginBottom: "5px" }}>Password</label>
+                            <Form.Item
+                                style={{ marginBottom: 0 }}
+                                name="password"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: "Please input password",
+                                    },
+                                ]}
+                            >
+                                <Input
+                                    placeholder="password"
+                                    type="text"
+                                    style={{
+                                        border: "1px solid #E0E4EC",
+                                        height: "52px",
+                                        background: "white",
+                                        borderRadius: "8px",
+                                        outline: "none",
+                                    }}
+                                />
+                            </Form.Item>
+                        </div>
+                        <button
+                            onClick={() => setOpen(false)}
+                            className="bg-[#F27405] py-2 px-5 text-white rounded-md"
+                        >
+                            Confirm
+                        </button>
+                    </div>
+                </Form>
             </Modal>
         </div>
     )

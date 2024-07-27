@@ -3,7 +3,7 @@ import { Calendar, Dropdown, Form, Input, Button, Checkbox, Space, Select, } fro
 import { FaEye, FaEyeSlash, FaImage } from 'react-icons/fa6';
 import TextArea from 'antd/es/input/TextArea';
 
-const CreateProductFrom = ({setOpen}) => {
+const CreateProductFrom = ({setOpen,formFor}) => {
     const [passwordInputType, setPasswordInputType] = useState('password');
     const [CpasswordInputType, setCPasswordInputType] = useState('password');
     const onFinish = (values) => {
@@ -106,7 +106,7 @@ const CreateProductFrom = ({setOpen}) => {
             </Form.Item>
             <div className='text-center py-3 pb-6'>
                 <button onClick={()=>setOpen(false)} className='w-[60%] py-2 bg-[#F27405] text-white rounded-md'>
-                    Submit
+                {formFor=='add'?'Confirm Product':'Update Product'}
                 </button>
             </div>
         </Form >

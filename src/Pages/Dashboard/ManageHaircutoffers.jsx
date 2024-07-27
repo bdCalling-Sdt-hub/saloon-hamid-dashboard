@@ -125,11 +125,16 @@ const ManageHaircutoffers = () => {
             <div className='mb-6 flex justify-between items-center'
 
             >
-                <h1 style={{ fontSize: "20px", fontWeight: 600, color: "#2F2F2F" }}>Manage Haircut offers</h1>
-                <div className='flex justify-end items-center gap-3'>
-                    <button className='text-2xl'>
-                        <FaRegFilePdf />
+                <div className='flex justify-start items-center gap-2 text-xl'>
+                    <h1 style={{ fontSize: "20px", fontWeight: 600, color: "#2F2F2F" }}>Manage Haircut offers</h1>
+                    <button className='p-2 bg-orange-500 rounded-md text-white'>
+                        <FaEye />
                     </button>
+                </div>
+                <div className='flex justify-end items-center gap-3'>
+                    {/* <button className='text-2xl'>
+                        <FaRegFilePdf />
+                    </button> */}
                     <div
                         style={{
                             width: "300px",
@@ -149,9 +154,9 @@ const ManageHaircutoffers = () => {
                             size="middle"
                         />
                     </div>
-                    <button className='p-2 text-lg text-white bg-[#F27405] rounded-md'>
+                    {/* <button className='p-2 text-lg text-white bg-[#F27405] rounded-md'>
                         <FaEye />
-                    </button>
+                    </button> */}
                 </div>
             </div>
             <div>
