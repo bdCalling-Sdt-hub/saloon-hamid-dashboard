@@ -287,10 +287,10 @@ const OrdersTransection = () => {
                                 <p>past</p>
                             </div>
                         </div>
-                        <div className="grid grid-cols-3 mt-2">
+                        <div className="grid grid-cols-2 mt-2">
                             <p>#11111111</p>
-                            <p className="flex justify-center items-center gap-1"><GiBackwardTime className="text-lg" />10 may, 2024</p>
                             <p className="flex justify-end items-center gap-1 text-[#F27405]"><IoTimeOutline className="text-lg" />10 may, 2024-10:00 Am</p>
+                            <p className="flex justify-start items-center gap-1 mt-2"><GiBackwardTime className="text-lg" />10 may, 2024</p>
                         </div>
                     </div>
                     <div className="mt-4 border-b border-b-[#F27405] pb-4">

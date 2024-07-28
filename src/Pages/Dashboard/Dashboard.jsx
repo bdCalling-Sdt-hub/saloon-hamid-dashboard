@@ -15,6 +15,16 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 import { FaFileInvoiceDollar, FaFire, FaRuler, FaStore } from "react-icons/fa6";
 import { TiShoppingCart } from "react-icons/ti";
 import { IoIosChatbubbles, IoIosNotificationsOutline, IoMdNotificationsOutline } from "react-icons/io";
+import categore from "../../assets/categore.png"
+import category_w from "../../assets/category_w.png"
+import eshop from "../../assets/eshop.png"
+import eshop_w from "../../assets/eshop_w.png"
+import eshop_category from "../../assets/eshop_category.png"
+import eshop_category_w from "../../assets/eshop_category_w.png"
+import transition from "../../assets/transition.png"
+import transition_w from "../../assets/transition_w.png"
+import invoice from "../../assets/invoice.png"
+import invoice_w from "../../assets/invoice_w.png"
 export const linkItems = [
   {
     title: "Dashboard",
@@ -39,27 +49,37 @@ export const linkItems = [
   {
     title: "Services Category",
     path: "/services-category",
-    icon: <FaRuler size={24} />,
+    img: categore,
+    img_w: category_w
   },
   {
     title: "Manage E-Shop",
     path: "/manage-shop",
-    icon: <TiShoppingCart size={24} />,
+    img: eshop,
+    img_w: eshop_w
   },
   {
     title: "E-Shop Category",
     path: "/product-category",
-    icon: <TbCategoryMinus size={24} />,
+    img: eshop_category,
+    img_w: eshop_category_w
   },
   {
     title: "Orders Transaction",
     path: "/orders-transaction",
-    icon: <TbShoppingCartDollar size={24} />,
+    img: transition,
+    img_w: transition_w
   },
   {
-    title: "Make Admin",
-    path: "/make-admin",
-    icon: <LuUserPlus size={24} />,
+    title: "Salon Invoice",
+    path: "/salon-invoice",
+    img: invoice,
+    img_w: invoice_w
+  },
+  {
+    title: "Notifications",
+    path: "/notification",
+    icon: <IoMdNotificationsOutline size={24} />,
   },
   {
     title: "Chat",
@@ -67,14 +87,9 @@ export const linkItems = [
     icon: <IoIosChatbubbles size={24} />,
   },
   {
-    title: "Salon Invoice",
-    path: "/salon-invoice",
-    icon: <FaFileInvoiceDollar size={24} />,
-  },
-  {
-    title: "Notifications",
-    path: "/notification",
-    icon: <IoMdNotificationsOutline size={24} />,
+    title: "Make Admin",
+    path: "/make-admin",
+    icon: <LuUserPlus size={24} />,
   },
 ];
 export const settingOptions = [
@@ -104,6 +119,7 @@ export const settingOptions = [
   },
 ]
 const Dashboard = () => {
+
   const [dropdown, setDropdown] = useState(false)
   const { pathname } = useLocation();
   const navigate = useNavigate();
@@ -170,7 +186,7 @@ const Dashboard = () => {
                   null
 
               }
-              <Link className={`${item.path === pathname ? "bg-[#F27405] text-[#FFFFFF]" : 'text-[#2b2a2a]'} py-2 rounded hover:bg-[#F27405] hover:text-[#FFFFFF] w-full px-2`}
+              <Link className={`${item.path === pathname ? "bg-[#F27405] text-[#FFFFFF]" : 'text-[#5C5C5C]'} py-2 rounded hover:bg-[#F27405] hover:text-[#FFFFFF] w-full px-2`}
                 to={item.path}
                 style={{
                   display: "flex",
@@ -179,7 +195,9 @@ const Dashboard = () => {
                   gap: "10px"
                 }}
               >
-                <div style={{ height: "24px", }}>{item.icon}</div>
+                <div style={{ height: "24px", }}>
+                  {item?.icon ? item.icon : <img src={location?.pathname == item?.path ? item?.img_w : item?.img} />}
+                </div>
                 <div style={{ fontSize: "14px", textAlign: "center", height: "fit-content" }}>{item.title}</div>
               </Link>
             </li>
@@ -216,22 +234,22 @@ const Dashboard = () => {
               gap: "14px",
               color: "#F2F2F2",
               cursor: "pointer",
-              padding: '12px 12px',
+              padding: '12px 6px',
               borderRadius: '4px',
               position: "relative",
               backgroundColor: dropdown ? "#F27405" : '',
-              color: dropdown ? "#fff" : '#2b2a2a',
+              color: dropdown ? "#fff" : '#5C5C5C',
             }}>
               <IoSettingsOutline size={24} />
 
               <p style={{ fontSize: "15px", textAlign: "center", }}>Settings</p>
-              {
+              {/* {
                 dropdown
                   ?
                   <MdKeyboardArrowDown className="absolute top-[50%] right-0 translate-y-[-50%]" size={24} />
                   :
                   <MdKeyboardArrowRight className="absolute top-[50%] right-0 translate-y-[-50%]" size={24} />
-              }
+              } */}
             </div>
             {
               dropdown
@@ -249,7 +267,7 @@ const Dashboard = () => {
                 {
                   settingOptions?.map((item, index) => <Link key={index} to={item?.path} style={{
                     textAlign: 'center',
-                    color: item.path === pathname ? "#FBFBFB" : '#2b2a2a',
+                    color: item.path === pathname ? "#FBFBFB" : '#5C5C5C',
                     width: '100%',
                     backgroundColor: item.path === pathname ? "#f27405" : '#FBFBFB',
                     display: 'block',
@@ -263,11 +281,11 @@ const Dashboard = () => {
             }
 
           </li>
-          <li onClick={handleLogOut} className="hover:bg-[#F27405] hover:text-white text-[#2b2a2a] cursor-pointer rounded-md py-1"
+          <li onClick={handleLogOut} className="hover:bg-[#F27405] hover:text-white text-[#5C5C5C] cursor-pointer rounded-md py-1"
             style={{
               width: "100%",
               position: "relative",
-              paddingLeft: "20px",
+              paddingLeft: "16px",
               display: "flex",
               alignItems: "center",
               justifyContent: 'start',
