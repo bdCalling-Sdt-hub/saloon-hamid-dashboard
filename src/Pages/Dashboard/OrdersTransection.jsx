@@ -10,6 +10,7 @@ import { MdCheckCircleOutline } from "react-icons/md";
 import { FiSearch } from 'react-icons/fi';
 import { IoClose, IoTimeOutline } from 'react-icons/io5';
 import { GiBackwardTime } from 'react-icons/gi';
+import { LuFileSpreadsheet } from 'react-icons/lu';
 const data = [
     {
         key: "1",
@@ -162,7 +163,7 @@ const OrdersTransection = () => {
                 <h1 style={{ fontSize: "20px", fontWeight: 600, color: "#2F2F2F" }}>All Transition</h1>
                 <div className='flex justify-end items-center gap-3'>
                     <button className='text-2xl'>
-                        <FaRegFilePdf />
+                        <LuFileSpreadsheet />
                     </button>
                     <div
                         style={{

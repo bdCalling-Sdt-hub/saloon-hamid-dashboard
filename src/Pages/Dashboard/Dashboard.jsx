@@ -14,7 +14,7 @@ import { MdKeyboardArrowRight } from "react-icons/md";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { FaFileInvoiceDollar, FaFire, FaRuler, FaStore } from "react-icons/fa6";
 import { TiShoppingCart } from "react-icons/ti";
-import { IoIosChatbubbles, IoMdNotificationsOutline } from "react-icons/io";
+import { IoIosChatbubbles, IoIosNotificationsOutline, IoMdNotificationsOutline } from "react-icons/io";
 export const linkItems = [
   {
     title: "Dashboard",
@@ -262,10 +262,31 @@ const Dashboard = () => {
               </div>
             }
 
-
           </li>
-
-          <li
+          <li onClick={handleLogOut} className="hover:bg-[#F27405] hover:text-white text-[#2b2a2a] cursor-pointer rounded-md py-1"
+            style={{
+              width: "100%",
+              position: "relative",
+              paddingLeft: "20px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: 'start',
+              transition: '.5s',
+              gap: '6px'
+            }}
+          >
+            <HiLogout size={24} />
+            <button style={{
+              textAlign: 'left',
+              // width: '100%',
+              display: 'block',
+              padding: '7px 0px',
+              borderRadius: '4px',
+            }}>
+              <p>Log Out</p>
+            </button>
+          </li>
+          {/* <li
             style={{
               width: "100%",
               left: "0",
@@ -278,7 +299,7 @@ const Dashboard = () => {
               <div style={{ color: "#6A6D7C", fontSize: "14px" }}>Logout</div>
               <HiLogout color="#6A6D7C" size={24} />
             </div>
-          </li>
+          </li> */}
 
         </ul>
 
@@ -310,7 +331,7 @@ const Dashboard = () => {
 
             <Badge color="#C30303" count={5}>
               <Link to="/notification" >
-                <RiNotification2Line color="#6A6A6A" size={24} />
+                <IoIosNotificationsOutline color="#6A6A6A" size={24} />
               </Link>
             </Badge>
             <div onClick={() => navigate('/profile')} className="border cursor-pointer"

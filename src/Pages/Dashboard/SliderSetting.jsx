@@ -36,6 +36,7 @@ const data = [
 
 
 const SliderSetting = () => {
+    const [formFor, setFormFor] = useState('add')
     const [category, setCategory] = useState("location");
     const [page, setPage] = useState(
         new URLSearchParams(window.location.search).get("page") || 1
@@ -150,7 +151,7 @@ const SliderSetting = () => {
                     }}
                 >
                     <button
-                        onClick={() => setOpenAddModel(true)}
+                        onClick={() => { setOpenAddModel(true); setFormFor('update') }}
                         style={{
                             cursor: "pointer",
                             border: "none",
@@ -228,7 +229,7 @@ const SliderSetting = () => {
                     </div>
                     <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
                         <Button
-                            onClick={() => setOpenAddModel(true)}
+                            onClick={() => { setOpenAddModel(true); setFormFor('add') }}
                             style={{
                                 borderRadius: 8,
                                 background: "#F25C05",
@@ -268,7 +269,7 @@ const SliderSetting = () => {
                         className="font-semibold text-[#555555]"
                         style={{ marginBottom: "12px" }}
                     >
-                        {`Add Slider`}
+                        {formFor == 'add' ? 'Add' : 'Update'}   Slider
                     </h1>
                     <Form>
                         <div>
@@ -336,8 +337,8 @@ const SliderSetting = () => {
                             />
                         </div>
                         <div className="text-center mt-6">
-                            <button className="bg-[#6A5ECC] px-6 py-3 w-full text-[#FEFEFE] rounded-md">
-                                Confirm
+                            <button className="bg-[#F27405] px-6 py-3 w-full text-[#FEFEFE] rounded-md">
+                                {formFor == 'add' ? 'Confirm' : 'Update'} Slider
                             </button>
                         </div>
                     </Form>

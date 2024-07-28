@@ -6,6 +6,7 @@ import { GoArrowUpRight } from 'react-icons/go';
 import { TfiReload } from 'react-icons/tfi';
 import { RiVerifiedBadgeFill } from "react-icons/ri";
 import CreateSalonForm from '../../Components/Form/CreateSalonForm';
+import { LuFileSpreadsheet } from 'react-icons/lu';
 const data = [
     {
         key: "1",
@@ -122,7 +123,7 @@ const SalonsDetails = () => {
                 <h1 style={{ fontSize: "20px", fontWeight: 600, color: "#2F2F2F" }}>All salon list</h1>
                 <div className='flex justify-end items-center gap-3'>
                     <button className='text-2xl'>
-                        <FaRegFilePdf />
+                        <LuFileSpreadsheet />
                     </button>
                     <Select className='min-w-44 h-[40px]'
                         onChange={handleChange}

@@ -118,6 +118,16 @@ const AllFeedbacks = () => {
                             { value: 'Yiminghe', label: 'yiminghe' },
                         ]}
                     />
+                    <Select className='mr-2 h-9'
+                        defaultValue="Location"
+                        style={{ width: 120 }}
+                        onChange={handleChange}
+                        options={[
+                            { value: 'jack', label: 'Jack' },
+                            { value: 'lucy', label: 'Lucy' },
+                            { value: 'Yiminghe', label: 'yiminghe' },
+                        ]}
+                    />
                     <button className='p-2 text-lg text-white bg-[#F27405] rounded-md'>
                         <TfiReload />
                     </button>

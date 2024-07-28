@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 import { TfiReload } from 'react-icons/tfi';
 import { FiSearch } from 'react-icons/fi';
 import { IoClose } from 'react-icons/io5';
+import { LuFileSpreadsheet } from 'react-icons/lu';
 const data = [
     {
         key: "1",
@@ -148,7 +149,7 @@ const SalonInvoice = () => {
                 <h1 style={{ fontSize: "20px", fontWeight: 600, color: "#2F2F2F" }}>Salon Invoice</h1>
                 <div className='flex justify-end items-center gap-3'>
                     <button className='text-2xl'>
-                        <FaRegFilePdf />
+                        <LuFileSpreadsheet />
                     </button>
                     <div
                         style={{

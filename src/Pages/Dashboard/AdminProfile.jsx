@@ -49,6 +49,7 @@ const AdminProfile = () => {
 //   }, [user])
   return (
     <div>
+      <p className="text-lg font-medium">Admin Profile</p>
       <div className='container pb-16'>
 
         <div className='bg-base py-9 px-10 rounded flex items-center justify-center flex-col gap-6' >

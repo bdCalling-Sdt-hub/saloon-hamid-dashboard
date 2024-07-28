@@ -112,7 +112,7 @@ const Chat = () => {
                             <p className='text-[#8B8B8B] poppins-regular  text-sm leading-5'>jondoe@gmail.com</p>
                         </div>
                     </div>
-                    <div className=' h-[76vh] p-6 pb-20 overflow-y-scroll bg-[#FEF1E6]' style={{ boxShadow: "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px" }}>
+                    <div className=' h-[72vh] p-6 pb-20 overflow-y-scroll bg-[#FEF1E6]' style={{ boxShadow: "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px" }}>
                         {[...Array(50).keys()].map((item, index) => <p className={`${index % 2 == 0 ? `ml-auto bg-[#FFFFFF]` : 'bg-[#E5E5E5]'} py-2 my-1 w-fit px-6 rounded-md`} key={index}>
                             {index % 2 == 0 ? `Lorem ipsum dolor sit amet consectetur.` : 'Lorem ipsum dolor sit amet consectetur.'}
                         </p>)}

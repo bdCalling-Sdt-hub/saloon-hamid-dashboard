@@ -4,6 +4,7 @@ import { FaRegFilePdf, FaRegTrashCan, FaUserCheck } from 'react-icons/fa6';
 import Swal from 'sweetalert2';
 import { GoArrowUpRight } from 'react-icons/go';
 import { TfiReload } from 'react-icons/tfi';
+import { LuFileSpreadsheet } from 'react-icons/lu';
 
 const data = [
   {
@@ -129,7 +130,7 @@ const TotalSellerList = () => {
         <h1 style={{ fontSize: "20px", fontWeight: 600, color: "#2F2F2F" }}>All User Details</h1>
         <div className='flex justify-end items-center gap-3'>
           <button className='text-2xl'>
-            <FaRegFilePdf />
+            <LuFileSpreadsheet />
           </button>
           <Select className='min-w-44'
             onChange={handleChange}

@@ -10,6 +10,7 @@ import { FaEdit } from 'react-icons/fa';
 import { MdDelete } from 'react-icons/md';
 import CreateSalonCategoryFrom from '../../Components/Form/CreateSalonCategoryFrom';
 import CreateProductCategoryForm from '../../Components/Form/CreateProductCategoryForm';
+import { LuFileSpreadsheet } from 'react-icons/lu';
 const data = [
     {
         key: "1",
@@ -81,7 +82,7 @@ const ProductCategory = () => {
             key: "printView",
             render: (_, record) => (
                 <div className='flex justify-start items-center gap-2'>
-                    <FaEdit onClick={() => { setOpenAddSalon(true) }} className="text-[#F25C05] text-2xl cursor-pointer" />
+                    <FaEdit onClick={() => { setOpenAddSalon(true);setFromFor('update') }} className="text-[#F25C05] text-2xl cursor-pointer" />
                     <MdDelete onClick={() => { setOpen(true) }} className="text-[#F25C05] text-2xl cursor-pointer" />
                 </div>
             ),
@@ -108,9 +109,9 @@ const ProductCategory = () => {
                 <h1 style={{ fontSize: "20px", fontWeight: 600, color: "#2F2F2F" }}>E-Shop Categories</h1>
                 <div className='flex justify-end items-center gap-3'>
                     <button className='text-2xl'>
-                        <FaRegFilePdf />
+                        <LuFileSpreadsheet />
                     </button>
-                    <button onClick={() => setOpenAddSalon(true)} className='flex justify-start items-center gap-2 text-white p-2 rounded-md bg-[#F27405]'>
+                    <button onClick={() => {setOpenAddSalon(true);setFromFor('add')}} className='flex justify-start items-center gap-2 text-white p-2 rounded-md bg-[#F27405]'>
                         <FaPlus />
                         Add Category
                     </button>
@@ -135,8 +136,8 @@ const ProductCategory = () => {
                 width={500}
             >
                 <div className='bg-white p-6 rounded-md'>
-                    <p className='text-[#F27405] text-lg font-medium'> Add E-Shop Category</p>
-                    <CreateProductCategoryForm />
+                    <p className='text-[#F27405] text-lg font-medium'> {formFor=='add'?'Add':'Update'} E-Shop Category</p>
+                    <CreateProductCategoryForm formFor={formFor} />
                 </div>
             </Modal>
             <Modal

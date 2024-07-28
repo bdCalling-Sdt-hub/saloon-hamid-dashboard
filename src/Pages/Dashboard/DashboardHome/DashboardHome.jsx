@@ -24,7 +24,7 @@ function DashboardHome() {
       count: "20.10K",
       icon: <HiUserGroup color="#F27405" size={32} />,
       color: "#F27405",
-      bgColor: "#E2F7FC",
+      bgColor: "#EFEFEF",
       extra: 'Daily user',
       extracount: 200
     },
@@ -33,14 +33,14 @@ function DashboardHome() {
       count: "320",
       color: "#734D2C",
       icon: <img src={salon} alt="" />,
-      bgColor: "#FFE3C7"
+      bgColor: "#EFEFEF"
     },
     {
       name: "Total Seller",
       count: "120",
       color: '#00B047',
       icon: <img src={earning} alt="" />,
-      bgColor: "#FFF3D6"
+      bgColor: "#EFEFEF"
     },
   ]
 

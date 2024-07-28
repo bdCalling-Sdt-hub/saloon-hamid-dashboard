@@ -29,7 +29,7 @@ const Login = () => {
         style={{ width: "630px", background: "white", borderRadius: "12px", padding: "90px 57px", boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px' }}
         onFinish={onFinish}
       >
-        <h1 style={{ fontSize: "32px", color: "#6A6D7C", textAlign: "center" }}>Login in to Account</h1>
+        <h1 style={{ fontSize: "24px", textAlign: "center" }}>Log in to your account</h1>
         <p className="text-center">Please enter your email and password to continue</p>
         <div style={{ marginBottom: "24px" }}>
           <label htmlFor="email" style={{ display: "block", marginBottom: "5px" }}> Email </label>

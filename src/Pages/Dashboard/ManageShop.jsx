@@ -10,6 +10,7 @@ import { FaEdit } from 'react-icons/fa';
 import { MdDelete } from 'react-icons/md';
 import CreateSalonCategoryFrom from '../../Components/Form/CreateSalonCategoryFrom';
 import CreateProductFrom from '../../Components/Form/CreateProductFrom';
+import { LuFileSpreadsheet } from 'react-icons/lu';
 const data = [
     {
         key: "1",
@@ -134,7 +135,7 @@ const ManageShop = () => {
                         ]}
                     />
                     <button className='text-2xl'>
-                        <FaRegFilePdf />
+                        <LuFileSpreadsheet />
                     </button>
                     <button onClick={() => { setOpenAddSalon(true); setFormFor('add') }} className='flex justify-start items-center gap-2 text-white p-2 rounded-md bg-[#F27405]'>
                         <FaPlus />
@@ -177,7 +178,7 @@ const ManageShop = () => {
                         Are you sure !
                     </p>
                     <p className="pt-4 pb-12 text-center">
-                        Do you want to delete this content ?
+                        Do you want to delete this Product ?
                     </p>
                     <button
                         onClick={() => setOpen(false)}
